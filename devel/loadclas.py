@@ -15,7 +15,7 @@ def loadclas(env) :
 	libs = [
 	           'pid', 'sc', 'tag', 'cc', 'st', 'ec', 'dc', 'trk', 'clasutil', 'c_bos_io',  'recutl', 'bosio',
                 'vertex', 'trk', 'dc', 'st', 'pid', 'sc', 'tag', 'c_bos_io', 'caldbMap', 'clasutil', 'bankdefs', 'c_cern',
-                'tcl', 'recutl', 'gfortran', 'packlib', 'mathlib'
+                'tcl', 'recutl', 'packlib', 'mathlib'
 	       ]
 
 	claslibs = []
@@ -26,6 +26,10 @@ def loadclas(env) :
 	env.Append(LIBPATH = [CLAS6LIB])
 	env.Append(LIBPATH = [CERNLIB])
 	env.Append(LIBS = claslibs)
+
+	
+	env.Append(LINKFLAGS = '-L/usr/lib64 -l:libgfortran.so.1')
+
 
 	if env['PLATFORM'] == 'darwin':
 		#env.Append(CPPPATH = '/sw/include')

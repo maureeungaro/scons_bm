@@ -8,12 +8,12 @@ def loadmu(env) :
 	if env['SHOWENV'] == "1":
 		print "Loading MU software from ", MU
 
-	env.Append(CXXFLAGS = env['INCPREFIX'] + MU + '/V4/src')
-	env.Append(CXXFLAGS = env['INCPREFIX'] + MU + '/CLAS_Event/src')
-	env.Append(CXXFLAGS = env['INCPREFIX'] + MU + '/analysis/binning')
+	env.Append(CXXFLAGS = env['INCPREFIX'] + MU + '/v4')
+	env.Append(CXXFLAGS = env['INCPREFIX'] + MU + '/src')
+	env.Append(CXXFLAGS = env['INCPREFIX'] + MU + '/bos2mu')
 
 	libs = [
-	        'CLAS_Event', 'V4', 'bin'
+	        'CLAS_Event', 'V4', 'utilities', 'CLAS_Event'
 	       ]
 
 	mulibs = []
@@ -21,8 +21,6 @@ def loadmu(env) :
 		mulibs.append(lib)
 
 
-	env.Append(LIBPATH = [MU + '/V4'])
-	env.Append(LIBPATH = [MU + '/CLAS_Event'])
-	env.Append(LIBPATH = [MU + '/analysis/binning'])
+	env.Append(LIBPATH = [MU + '/lib'])
 	env.Append(LIBS = mulibs)
 
