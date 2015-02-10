@@ -27,8 +27,11 @@ def loadclas(env) :
 	env.Append(LIBPATH = [CERNLIB])
 	env.Append(LIBS = claslibs)
 
-	
-	env.Append(LINKFLAGS = '-L/usr/lib64 -l:libgfortran.so.1')
+  if env['ARCHI'] == 'x86':
+    env.Append(LINKFLAGS = '-L/usr/lib -l:libgfortran.so.1')
+  else:
+    env.Append(LINKFLAGS = '-L/usr/lib64 -l:libgfortran.so.1')
+    
 
 
 	if env['PLATFORM'] == 'darwin':
