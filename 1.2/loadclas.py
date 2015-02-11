@@ -15,7 +15,7 @@ def loadclas(env) :
 	libs = [
 	           'pid', 'sc', 'tag', 'cc', 'st', 'ec', 'dc', 'trk', 'clasutil', 'c_bos_io',  'recutl', 'bosio',
                 'vertex', 'trk', 'dc', 'st', 'pid', 'sc', 'tag', 'c_bos_io', 'caldbMap', 'clasutil', 'bankdefs', 'c_cern',
-                'tcl', 'recutl', 'packlib', 'mathlib'
+                'tcl', 'recutl', 'packlib', 'mathlib', 'kernlib'
 	       ]
 
 	claslibs = []
