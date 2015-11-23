@@ -24,6 +24,11 @@ def loadqt(env) :
 		env.Append(CPPFLAGS = qtcppf )
 		env.Append(LINKFLAGS = "-F" + QTDIR + "/lib" )
 		env.Append(LINKFLAGS = qtlinkf)
+		# added because starting with qt 5.5: the prebuilt 5.5.0 binaries from Qt
+		# use @rpath for mac instead @excutable_path or an absolute path.
+		# For Linux this is not necessary
+		env.Append(LINKFLAGS  = "-rpath " + QTDIR + "/lib" )
+
 	else:
 		env['ENV']['PKG_CONFIG_PATH'] = os.environ['PKG_CONFIG_PATH']
 		env.EnableQt5Modules(qtModules)
