@@ -18,10 +18,6 @@ def loadqt(env) :
 	qtcppf  = ''.join(qtincs)
 	qtlinkf = ''.join(qtlibs)
 
-	# added because starting with qt 5.5: the prebuilt 5.5.0 binaries from Qt
-	#use @rpath instead @excutable_path or an absolute path.
-	env.Append(LINKFLAGS  = "-rpath " + QTDIR + "/lib" )
-
 	# The location of the headers is different in Linux and Darwin (oh why oh why)
 	if env['PLATFORM'] == 'darwin':
 		env.Append(CPPFLAGS  = "-F" + QTDIR + "/lib" )
@@ -32,7 +28,6 @@ def loadqt(env) :
 		env['ENV']['PKG_CONFIG_PATH'] = os.environ['PKG_CONFIG_PATH']
 		env.EnableQt5Modules(qtModules)
 		env.Append(CPPFLAGS = ' -fPIC')
-
 
 	# Qt existance is already checked
 	if env['SHOWENV'] == "1":

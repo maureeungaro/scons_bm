@@ -1,3 +1,6 @@
+11/23/15
+- removed rpath directive, it was probably fixed in qt 5-5-02
+
 1/21/15
 - indented qt log messages
 - fixed loadgeant4 for library vector
