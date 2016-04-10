@@ -123,6 +123,8 @@ def loadoptions(env) :
 		if env['LIBRARY'] == 'shared':
 			env.Append(CPPFLAGS = ' -fPIC')
 
+	# using c++11 starting from ceInstall 1.4 version
+	env.Append(CXXFLAGS = ' -std=c++11 ')
 
 
 def cmloptions(opts) :

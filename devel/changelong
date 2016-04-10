@@ -1,3 +1,6 @@
+4/10/16
+- using c++11 starting from ceInstall 1.4 version 
+
 11/23/15
 - removed rpath directive for linux, still needed for mac.
 
