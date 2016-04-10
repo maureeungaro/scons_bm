@@ -1,5 +1,5 @@
 11/23/15
-- removed rpath directive, it was probably fixed in qt 5-5-02
+- removed rpath directive for linux, still needed for mac.
 
 1/21/15
 - indented qt log messages

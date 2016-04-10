@@ -17,7 +17,7 @@ def loadclas12(env) :
 	libs = [
 	        'banks',
 			'output',
-			'utilities',
+			'utilities'
 	       ]
 
 	c12libs = []
