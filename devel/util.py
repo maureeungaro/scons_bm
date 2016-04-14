@@ -51,6 +51,22 @@ def loadoptions(env) :
 		env.AppendUnique(LIBPATH = [os.environ['MSLIBS']])
 		env.AppendUnique(LIBPATH = [os.environ['SDKLIBS']])
 
+	if env['PLATFORM'] == 'posix':
+		env.Append(ENV = {'PATH': os.environ['PATH']})
+		env.Append(CXXFLAGS = '-fexceptions')
+		env.Append(CXXFLAGS = '-fstack-protector')
+		env.Append(CXXFLAGS = '-Wall')
+		env.Append(LIBS = 'dl')
+		if env['LIBRARY'] == 'shared':
+			env.Append(CPPFLAGS = ' -fPIC')
+	
+	
+	if env['PLATFORM'] == 'darwin':
+		env.Append(CXXFLAGS = '-fexceptions')
+		env.Append(CXXFLAGS = '-fstack-protector')
+		env.Append(CXXFLAGS = '-Wall')
+		env.Append(CCFLAGS  = '-Wno-unused-private-field')
+
 			
 	if env['SHOWBUILD'] != "1":
 		env['PRINT_CMD_LINE_FUNC'] = print_cmd_line
@@ -74,11 +90,11 @@ def loadoptions(env) :
 			env.Append(CXXFLAGS = '/O2 /Gs')
 			print "Compiling with /O2 /Gs optimization."
 	
-	if env['XERCES3'] == "1":
-		OSENV  = os.environ
-		XERCESCROOT = OSENV['XERCESCROOT']
-		env.Append(CXXFLAGS='-DHAVE_XERCES=1 -DXERCES3=1 -I' + XERCESCROOT + '/include')
-
+#	if env['XERCES3'] == "1":
+#		OSENV  = os.environ
+#		XERCESCROOT = OSENV['XERCESCROOT']
+#		env.Append(CXXFLAGS='-DHAVE_XERCES=1 -DXERCES3=1 -I' + XERCESCROOT + '/include')
+#
 
 	if env['DEBUG'] == "1":
 		if env['PLATFORM'] == 'posix':
@@ -103,25 +119,6 @@ def loadoptions(env) :
 			env.Append(LINKFLAGS = '-pg')
 			print "Compiling with -pg profiling."
 	
-	if env['PLATFORM'] == 'posix':
-		env.Append(CXXFLAGS = '-fexceptions')
-		env.Append(CXXFLAGS = '-fstack-protector')
-		env.Append(CXXFLAGS = '-Wall')
-		env.Append(CCFLAGS  = '-Wall')
-		env.Append(LIBS = 'dl')
-
-		
-	if env['PLATFORM'] == 'darwin':
-		env.Append(CXXFLAGS = '-fexceptions')
-		env.Append(CXXFLAGS = '-fstack-protector')
-		env.Append(CXXFLAGS = '-Wall')
-		env.Append(CCFLAGS  = '-Wall')
-		env.Append(CCFLAGS  = '-Wno-unused-private-field')
-
-
-	if env['PLATFORM'] == 'posix':
-		if env['LIBRARY'] == 'shared':
-			env.Append(CPPFLAGS = ' -fPIC')
 
 	# using c++11 starting from ceInstall 1.4 version
 	env.Append(CXXFLAGS = ' -std=c++11 ')
@@ -135,6 +132,6 @@ def cmloptions(opts) :
 	opts.Add('DEBUG',     'Set to 1 to compile in debug mode', 0)
 	opts.Add('PROFILE',   'Set to 1 to compile in profiling mode', 0)
 	opts.Add('CUDA_EMU',  'Set to 1 to compile in video-card emulation mode', 0)
-	opts.Add('XERCES3',   'Set to 1 to compile with -DXERCES3=1', 0)
+	opts.Add('XERCES3',   'Set to 1 to compile with option -DXERCES3=1', 0)
 	opts.Add('LIBRARY',   'Set at run time to compile shared or static library', 0)
 	
