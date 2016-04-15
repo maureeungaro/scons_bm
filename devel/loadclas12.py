@@ -25,7 +25,7 @@ def loadclas12(env) :
 		c12libs.append(lib)
 
 	env.Append(LIBPATH = [BANKS + '/lib'])
-	env.Append(LIBPATH = [GEMC + '/source/lib'])
+	env.Append(LIBPATH = [GEMC +  '/lib'])
 	env.Append(LIBS = c12libs)
 
 	if env['SHOWENV'] == "1":
