@@ -9,9 +9,9 @@ def loadclas12(env) :
 	check_if_dir_exist('GEMC')
 
 	env.Append(CPPPATH = [BANKS + '/src'])
-	env.Append(CPPPATH = [GEMC + '/source/src'])
-	env.Append(CPPPATH = [GEMC + '/source/output'])
-	env.Append(CPPPATH = [GEMC + '/source/utilities'])
+	env.Append(CPPPATH = [GEMC + ' /src'])
+	env.Append(CPPPATH = [GEMC + ' /output'])
+	env.Append(CPPPATH = [GEMC + ' /utilities'])
 
 	# Notice: The order counts here
 	libs = [
