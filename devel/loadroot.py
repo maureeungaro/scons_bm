@@ -38,18 +38,12 @@ def loadroot(env) :
 			rootlibs += [l[2:]]
 
 
-	# no GQt in Windows
 	if env['PLATFORM'] == 'posix':
-		#rootlibs += ['-lGQt']
-		env.Append(LIBPATH = [ROOTSYS + '/lib/root'])
 		env.Append(LIBPATH = [ROOTSYS + '/lib'])
 	if env['PLATFORM'] == 'darwin':
-		#rootlibs += ['-lGQt']
-		env.Append(LIBPATH = [ROOTSYS + '/lib/root'])
-    		env.Append(LIBPATH = [ROOTSYS + '/lib'])
+		env.Append(LIBPATH = [ROOTSYS + '/lib'])
 	if env['PLATFORM'] == 'win32':
 		env.Append(LIBPATH = [ROOTSYS + '\lib'])
-		env.Append(LIBPATH = [ROOTSYS + '\lib\root'])
 
 	if env['SHOWENV'] == "1":
 		print "ROOT include path: ", inc_path
