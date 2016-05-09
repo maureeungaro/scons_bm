@@ -28,9 +28,9 @@ def loadclas(env) :
 	env.Append(LIBS = claslibs)
 
 	if env['ARCHI'] == 'x86':
-		env.Append(LINKFLAGS = '-L/usr/lib -l:libgfortran.so.1')
+		env.Append(LINKFLAGS = '-L/usr/lib -lgfortran')
 	else:
-		env.Append(LINKFLAGS = '-L/usr/lib64 -l:libgfortran.so.1')
+		env.Append(LINKFLAGS = '-L/usr/lib64 -lgfortran')
     
 
 
