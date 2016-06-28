@@ -1,14 +1,14 @@
 from util import check_if_dir_exist
 import os
 
+# MLIBRARY already has the version in it
+
 def loadclas12(env) :
 	OSENV = os.environ
 	MLIBRARY = OSENV['MLIBRARY']
 	check_if_dir_exist('MLIBRARY')
 
-	OPTIONSV = OSENV['OPTIONS_VERSION']
-
-	env.Append(CPPPATH = [MLIBRARY + '/options' + OPTIONS_VERSION])
+	env.Append(CPPPATH = [MLIBRARY + '/options'])
 
 	libs = [
 			  'options',
