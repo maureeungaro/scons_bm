@@ -15,10 +15,10 @@ def loadclas12(env) :
 
 	# Notice: The order counts here
 	libs = [
-	        'banks',
-			'output',
-			'utilities'
-	       ]
+			  'banks',
+			  'output',
+			  'utilities'
+			  ]
 
 	c12libs = []
 	for lib in libs:
