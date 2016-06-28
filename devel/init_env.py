@@ -62,6 +62,9 @@ def init_environment(reqlist) :
 		if l == "mu":
 			from loadmu import loadmu
 			loadmu(env)
+		if l == "mlibrary":
+			from loadmlibrary import loadmlibrary
+			loadmlibrary(env)
 		if l == "mysql":
 			from loadmysql import loadmysql
 			loadmysql(env)
@@ -74,9 +77,6 @@ def init_environment(reqlist) :
 		if l == "xercesc":
 			from loadxerces import loadxerces
 			loadxerces(env)
-		if l == "mlibrary":
-			from loadmlibrary import loadmlibrary
-			loadmlibrary(env)
 
 	# generating help list
 	Help(opts.GenerateHelpText(env))

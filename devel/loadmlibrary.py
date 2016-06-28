@@ -3,7 +3,7 @@ import os
 
 # MLIBRARY already has the version in it
 
-def loadclas12(env) :
+def loadmlibrary(env) :
 	OSENV = os.environ
 	MLIBRARY = OSENV['MLIBRARY']
 	check_if_dir_exist('MLIBRARY')
