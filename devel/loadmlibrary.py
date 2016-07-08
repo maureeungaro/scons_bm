@@ -12,6 +12,7 @@ def loadmlibrary(env) :
 
 	libs = [
 			  'options',
+			  'translationTable'
 			  ]
 
 	c12libs = []
