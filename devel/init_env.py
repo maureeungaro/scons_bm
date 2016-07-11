@@ -38,15 +38,6 @@ def init_environment(reqlist) :
 		if l == "clhep":
 			from loadclhep import loadclhep
 			loadclhep(env)
-		if l == "cmsg":
-			from loadcmsg import loadcmsg
-			loadcmsg(env)
-		if l == "clara":
-			from loadclara import loadclara
-			loadclara(env)
-		if l == "ctoolbox":
-			from loadctoolbox import loadctoolbox
-			loadctoolbox(env)
 		if l == "cuda":
 			from loadcuda import loadcuda
 			loadcuda(env)
