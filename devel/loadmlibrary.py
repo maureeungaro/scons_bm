@@ -11,11 +11,12 @@ def loadmlibrary(env) :
 
 
 	## includes
-	mlibraryincs1 = [MLIBRARY + '/options']
-	mlibraryincs2 = [MLIBRARY + '/translationTable']
-	env.Append(CPPPATH = mlibraryincs1)
-	env.Append(CPPPATH = mlibraryincs2)
-
+	mincs = ['options', 'translationTable', 'splash']
+	mincludes = []
+	for minc in mincs:
+		thisInc =  MLIBRARY + '/' + minc
+		env.Append(CXXFLAGS=[env['INCPREFIX'] + thisInc + env['INCSUFFIX']])
+		mincludes += [thisInc]
 
 	## library paths
 	mlibrarydir = [MLIBRARY + '/lib']
@@ -36,7 +37,7 @@ def loadmlibrary(env) :
 
 	if env['SHOWENV'] == "1":
 		print "\n > Loading MLIBRARY software from ", MLIBRARY
-		print "   MLIBRARY include flags: ",  mlibraryincs1, mlibraryincs1
+		print "   MLIBRARY include flags: ",  mincludes
 		print "   MLIBRARY libraries path: ", mlibrarydir
 		print "   MLIBRARY libraries: ",      mlibs
 
