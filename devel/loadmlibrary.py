@@ -11,7 +11,7 @@ def loadmlibrary(env) :
 
 
 	## includes
-	mincs = ['options', 'translationTable', 'splash', 'gruns']
+	mincs = ['options', 'translationTable', 'splash', 'gruns', 'textProgressBar']
 	mincludes = []
 	for minc in mincs:
 		thisInc =  MLIBRARY + '/' + minc
