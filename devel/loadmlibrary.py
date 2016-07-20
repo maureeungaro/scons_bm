@@ -1,5 +1,6 @@
 from util import scanFiles, check_if_dir_exist
 import os
+import re
 
 
 # MLIBRARY already has the version in it
@@ -11,27 +12,33 @@ def loadmlibrary(env) :
 
 
 	## includes
-	mincs = ['options', 'translationTable', 'splash', 'gruns', 'textProgressBar']
+	mincs = ['options', 'translationTable', 'splash', 'gruns', 'textProgressBar', 'cadmesh/include', 'cadmesh/external/assimp/include', 'cadmesh/external/tetgen']
 	mincludes = []
 	for minc in mincs:
 		thisInc =  MLIBRARY + '/' + minc
 		env.Append(CXXFLAGS=[env['INCPREFIX'] + thisInc + env['INCSUFFIX']])
 		mincludes += [thisInc]
 
+
 	## library paths
 	mlibrarydir = [MLIBRARY + '/lib']
 	env.Append(LIBPATH = mlibrarydir)
 
-	## libraries
+	## libraries - this will include cadmesh
 	libs = scanFiles(MLIBRARY + '/lib', accept=[ "*.a", "*.lib"])
+	## addind cadmesh library names by hand
+	libs.append('cadmesh')
+	libs.append('assimp')
+	libs.append('tet')
 
 	# only load library if it exists
 	mlibs = []
 	for dir in libs:
 		basename = os.path.basename(dir)
-		wout_lib = basename.strip("lib")
-		lib      = wout_lib.strip(".a")
+		wout_lib = basename.strip('lib')
+		lib      = re.sub("\.a", "", wout_lib)
 		mlibs.append(lib)
+
 
 	env.Append(LIBS = mlibs)
 
