@@ -26,6 +26,9 @@ def init_environment(reqlist) :
 
 	# Now scanning the dependencies
 	for l in list:
+		if l == "cadmesh":
+			from loadcadmesh import loadcadmesh
+			loadcadmesh(env)
 		if l == "ccdb":
 			from loadccdb import loadccdb
 			loadccdb(env)

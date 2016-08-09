@@ -5,14 +5,14 @@ import re
 
 # MLIBRARY already has the version in it
 
-def loadmlibrary(env) :
+def loadcadmesh(env) :
 	OSENV = os.environ
 	MLIBRARY = OSENV['MLIBRARY']
 	check_if_dir_exist('MLIBRARY')
 
 
 	## includes
-	mincs = ['options', 'translationTable', 'splash', 'gruns', 'textProgressBar']
+	mincs = ['cadmesh/include', 'cadmesh/external/assimp/include', 'cadmesh/external/tetgen']
 	mincludes = []
 	for minc in mincs:
 		thisInc =  MLIBRARY + '/' + minc
@@ -24,8 +24,8 @@ def loadmlibrary(env) :
 	mlibrarydir = [MLIBRARY + '/lib']
 	env.Append(LIBPATH = mlibrarydir)
 
-	## libraries - this will include cadmesh
-	libs = scanFiles(MLIBRARY + '/lib', accept=[ "*.a", "*.lib"])
+	## addind cadmesh library names by hand
+	libs = ['cadmesh', 'assimp', 'tet']
 
 	# only load library if it exists
 	mlibs = []
@@ -39,8 +39,8 @@ def loadmlibrary(env) :
 	env.Append(LIBS = mlibs)
 
 	if env['SHOWENV'] == "1":
-		print "\n > Loading MLIBRARY software from ", MLIBRARY
-		print "   MLIBRARY include flags: ",  mincludes
-		print "   MLIBRARY libraries path: ", mlibrarydir
-		print "   MLIBRARY libraries: ",      mlibs
+		print "\n > Loading Cadmesh software from ", MLIBRARY
+		print "   Cadmesh include flags: ",  mincludes
+		print "   Cadmesh libraries path: ", mlibrarydir
+		print "   Cadmesh libraries: ",      mlibs
 

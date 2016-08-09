@@ -1,3 +1,26 @@
+8/9/16
+- added cadmesh python loader
+
+7/13/16
+- added textProgressBar
+
+
+7/12/16
+- added splash to includes mlibrary - better include mechanism
+- better log for qt
+- added gruns library
+
+
+7/11/16
+- checking library existance before adding it to the list of libraries
+- using scanfiles to scan mlibrary
+- removed obsolete scons packages. mlibrary more uniform
+
+
+6/28/16
+- added mlibrary build
+
+
 4/10/16
 - using c++11 starting from ceInstall 1.4 version 
 
