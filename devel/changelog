@@ -1,5 +1,6 @@
 8/11/16
 - added gstring, frequencySyncSignal
+- added library gstring at the end of mlibrary loader, because gcc is antique and respects library order. 
 
 8/9/16
 - added cadmesh python loader

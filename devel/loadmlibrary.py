@@ -32,6 +32,7 @@ def loadmlibrary(env) :
 		wout_lib = basename.strip('lib')
 		lib      = re.sub("\.a", "", wout_lib)
 		mlibs.append(lib)
+	mlibs.append('gstring')
 
 
 	env.Append(LIBS = mlibs)
