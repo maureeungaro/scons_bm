@@ -10,6 +10,8 @@ def loadjana(env) :
 
 	## includes
 	env.Append(CPPPATH = JANA_HOME + '/include')
+
+	## flags
 	env.Append(LINKFLAGS = '-rdynamic')
 
 	## libraries

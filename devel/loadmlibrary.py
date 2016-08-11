@@ -10,15 +10,13 @@ def loadmlibrary(env) :
 	MLIBRARY = OSENV['MLIBRARY']
 	check_if_dir_exist('MLIBRARY')
 
-
 	## includes
-	mincs = ['options', 'translationTable', 'splash', 'gruns', 'textProgressBar']
+	mincs = ['options', 'translationTable', 'splash', 'gruns', 'textProgressBar', 'gstring', 'frequencySyncSignal']
 	mincludes = []
 	for minc in mincs:
 		thisInc =  MLIBRARY + '/' + minc
 		env.Append(CXXFLAGS=[env['INCPREFIX'] + thisInc + env['INCSUFFIX']])
 		mincludes += [thisInc]
-
 
 	## library paths
 	mlibrarydir = [MLIBRARY + '/lib']
