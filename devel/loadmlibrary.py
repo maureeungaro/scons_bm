@@ -11,7 +11,7 @@ def loadmlibrary(env) :
 	check_if_dir_exist('MLIBRARY')
 
 	## includes
-	mincs = ['options', 'translationTable', 'splash', 'gruns', 'textProgressBar', 'gstring', 'frequencySyncSignal']
+	mincs = ['options', 'translationTable', 'splash', 'gruns', 'textProgressBar', 'gstring', 'frequencySyncSignal', 'qtButtonsWidget']
 	mincludes = []
 	for minc in mincs:
 		thisInc =  MLIBRARY + '/' + minc
@@ -32,7 +32,6 @@ def loadmlibrary(env) :
 		wout_lib = basename.strip('lib')
 		lib      = re.sub("\.a", "", wout_lib)
 		mlibs.append(lib)
-	mlibs.append('gstring')
 
 
 	env.Append(LIBS = mlibs)
