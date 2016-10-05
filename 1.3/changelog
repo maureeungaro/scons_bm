@@ -1,5 +1,35 @@
+8/11/16
+- added gstring, frequencySyncSignal
+- added library gstring at the end of mlibrary loader, because gcc is antique and respects library order. 
+
+8/9/16
+- added cadmesh python loader
+
+7/13/16
+- added textProgressBar
+
+
+7/12/16
+- added splash to includes mlibrary - better include mechanism
+- better log for qt
+- added gruns library
+
+
+7/11/16
+- checking library existance before adding it to the list of libraries
+- using scanfiles to scan mlibrary
+- removed obsolete scons packages. mlibrary more uniform
+
+
+6/28/16
+- added mlibrary build
+
+
+4/10/16
+- using c++11 starting from ceInstall 1.4 version 
+
 11/23/15
-- removed rpath directive, it was probably fixed in qt 5-5-02
+- removed rpath directive for linux, still needed for mac.
 
 1/21/15
 - indented qt log messages
