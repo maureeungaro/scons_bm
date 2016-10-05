@@ -29,7 +29,6 @@ def loadevio(env) :
 		eviolibs.append('libexpat')
     	
 		# Assuming we have boost, installed with FINK
-		# env.Append(CPPPATH = ['/sw/include'])
 		eviolibs.append('pthread')
 	
 	env.Append(LIBS = eviolibs)
