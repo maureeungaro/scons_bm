@@ -1,19 +1,19 @@
 from util import check_if_dir_exist
 import os
-import re
 
 def loadroot(env) :
-
-	ROOTSYS = os.environ.get('ROOTSYS')
+	OSENV  = os.environ
+	ROOTSYS = OSENV['ROOTSYS']
 	check_if_dir_exist('ROOTSYS')
 	if env['SHOWENV'] == "1":
 		print "Loading ROOT software from ", ROOTSYS
 
 	inc_path = []
 
-	if env['PLATFORM'] == 'posix' or env['PLATFORM'] == 'darwin':
+	if env['PLATFORM'] == 'posix':
 		inc_path = os.popen('$ROOTSYS/bin/root-config --incdir').readline()
-
+	if env['PLATFORM'] == 'darwin':
+		inc_path = os.popen('$ROOTSYS/bin/root-config --incdir').readline()
 	# on Windows there is no script
 	# Have to do it by hand
 	if env['PLATFORM'] == 'win32':
@@ -23,18 +23,27 @@ def loadroot(env) :
 
 	rootlibs = []
 	root_config_libs = []
-	if env['PLATFORM'] == 'posix' or env['PLATFORM'] == 'darwin':
-		root_config_libs = os.popen('$ROOTSYS/bin/root-config --glibs').readline().rstrip().split()
-
+	if env['PLATFORM'] == 'posix':
+		root_config_libs = os.popen('$ROOTSYS/bin/root-config --glibs').readline()[:-1].split()
+	if env['PLATFORM'] == 'darwin':
+		root_config_libs = os.popen('$ROOTSYS/bin/root-config --glibs').readline()[:-1].split()
 	# on Windows there is no script
 	# Have to do it by hand
 	# Do a showenv on Linux/Darwin and copy here
 	if env['PLATFORM'] == 'win32':
 		rootlibs = ['libCore', 'libCint', 'libRIO', 'libNet', 'libHist', 'libGraf', 'libGraf3d', 'libGpad', 'libTree', 'libRint', 'libPostscript', 'libMatrix', 'libPhysics', 'libMathCore', 'libThread', 'libGui']
 
-	rootlibs += [ x for x in root_config_libs if re.match('-l',x) ]
+	for l in root_config_libs:
+		if l[:2] == '-l':
+			rootlibs += [l[2:]]
 
-	env.Append(LIBPATH = [ x for x in root_config_libs  if re.match('-L',x) ] )
+
+	if env['PLATFORM'] == 'posix':
+		env.Append(LIBPATH = [ROOTSYS + '/lib'])
+	if env['PLATFORM'] == 'darwin':
+		env.Append(LIBPATH = [ROOTSYS + '/lib'])
+	if env['PLATFORM'] == 'win32':
+		env.Append(LIBPATH = [ROOTSYS + '\lib'])
 
 	if env['SHOWENV'] == "1":
 		print "ROOT include path: ", inc_path
