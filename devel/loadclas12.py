@@ -16,8 +16,8 @@ def loadclas12(env) :
 	# Notice: The order counts here
 	libs = [
 			  'banks',
-			  'output',
-			  'utilities'
+			  'goutput',
+			  'gutilities'
 			  ]
 
 	c12libs = []
@@ -29,6 +29,6 @@ def loadclas12(env) :
 	env.Append(LIBS = c12libs)
 
 	if env['SHOWENV'] == "1":
-		print "Loading BANKS software from ", BANKS
-		print "Loading GEMC utilities software from ", GEMC
-
+		print "\n > Loading BANKS software from ", BANKS
+		print "   > Loading GEMC software from ", GEMC
+		print "\n > BANKS, GEMC  libraries: ",  c12libs
