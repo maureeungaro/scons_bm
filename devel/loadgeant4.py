@@ -9,7 +9,14 @@ def loadgeant4(env) :
 	# Geant 4 additional compiler options
 	env.Append(CXXFLAGS='-DG4OPTIMISE')
 	env.Append(CXXFLAGS='-DG4_STORE_TRAJECTORY')
-	
+	env.Append(CXXFLAGS='-DG4VIS_USE_OPENGL')
+	env.Append(CXXFLAGS='-DG4UI_USE_TCSH')
+	env.Append(CXXFLAGS='-DG4INTY_USE_QT')
+	env.Append(CXXFLAGS='-DG4UI_USE_QT')
+	env.Append(CXXFLAGS='-DG4VIS_USE_OPENGLQT')
+	env.Append(CXXFLAGS='-DG4USE_STD11')
+	env.Append(CXXFLAGS='-DG4MULTITHREADED')
+
 	## includes
 	# Stripping all entries that are not geant4 related
 	validg4incs = []
