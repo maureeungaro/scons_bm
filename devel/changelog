@@ -1,3 +1,6 @@
+11/17/17
+- added root path from the root config file, and better log for SHOW_ENV
+
 11/7/17
 - added gmedia mlibrary in header search path
 

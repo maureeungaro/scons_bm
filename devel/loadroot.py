@@ -6,13 +6,11 @@ def loadroot(env) :
 
 	ROOTSYS = os.environ.get('ROOTSYS')
 	check_if_dir_exist('ROOTSYS')
-	if env['SHOWENV'] == "1":
-		print "Loading ROOT software from ", ROOTSYS
 
 	inc_path = []
 
 	if env['PLATFORM'] == 'posix' or env['PLATFORM'] == 'darwin':
-		inc_path = os.popen('$ROOTSYS/bin/root-config --incdir').readline()
+		inc_path = os.popen('$ROOTSYS/bin/root-config --incdir').readline().rstrip()
 
 	# on Windows there is no script
 	# Have to do it by hand
@@ -25,6 +23,7 @@ def loadroot(env) :
 	root_config_libs = []
 	if env['PLATFORM'] == 'posix' or env['PLATFORM'] == 'darwin':
 		root_config_libs = os.popen('$ROOTSYS/bin/root-config --glibs').readline().rstrip().split()
+		root_libpath     = os.popen('$ROOTSYS/bin/root-config --libdir').readline().rstrip().split()
 
 	# on Windows there is no script
 	# Have to do it by hand
@@ -32,16 +31,17 @@ def loadroot(env) :
 	if env['PLATFORM'] == 'win32':
 		rootlibs = ['libCore', 'libCint', 'libRIO', 'libNet', 'libHist', 'libGraf', 'libGraf3d', 'libGpad', 'libTree', 'libRint', 'libPostscript', 'libMatrix', 'libPhysics', 'libMathCore', 'libThread', 'libGui']
 
-        # This filters out all the "-lxxx" parts of the root_config_libs
+	# This filters out all the "-lxxx" parts of the root_config_libs
 	rootlibs += [ x for x in root_config_libs if re.match('-l',x) ]
 
-        # This grabs the "-L" part of the root_config_libs
-	env.Append(LIBPATH = [ x for x in root_config_libs  if re.match('-L',x) ] )
+	# This grabs the "-L" part of the root_config_libs
+	env.Append(LIBPATH = root_libpath )
 
 	if env['SHOWENV'] == "1":
-		print "ROOT include path: ", inc_path
-		print "ROOT Libraries: ", rootlibs
-
+		print "\n > Loading ROOT software from ", ROOTSYS
+		print "   ROOT include flags: ",  inc_path
+		print "   ROOT libraries path: ", root_libpath
+		print "   ROOT libraries: ",      rootlibs
 
 	env.Append(LIBS = rootlibs)
 
