@@ -1,4 +1,0 @@
-- standardize definition of paths, libraries, messages
-- remove obsolete packages
-- add coatjava
-- separate cadmesh from mlibrary.
