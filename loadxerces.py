@@ -11,8 +11,11 @@ def loadxerces(env) :
 	env.Append(CPPPATH = xercesincs)
 
 	## library paths
-	xercesldir = [XERCESCROOT + '/lib']
-	env.Append(LIBPATH = xercesldir)
+	## some OS need lib64
+	xercesldir1 = [XERCESCROOT + '/lib']
+	xercesldir2 = [XERCESCROOT + '/lib64']
+	env.Append(LIBPATH = xercesldir1)
+	env.Append(LIBPATH = xercesldir2)
 
 	## libraries
 	xerceslibs = ['xerces-c']
