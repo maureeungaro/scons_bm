@@ -12,7 +12,9 @@ def loadcadmesh(env) :
 
 
 	## includes
-	mincs = ['cadmesh/include', 'cadmesh/external/assimp/include', 'cadmesh/external/tetgen']
+	# mincs = ['cadmesh/include', 'cadmesh/external/assimp/include', 'cadmesh/external/tetgen']
+	# This is all that should be needed for the includes. The above can be actually removed from disk
+	mincs = ['include']
 	mincludes = []
 	for minc in mincs:
 		thisInc =  MLIBRARY + '/' + minc
