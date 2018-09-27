@@ -1,3 +1,6 @@
+9/27/19
+- xercesc lib64 only needed on posix
+
 11/17/17
 - added root path from the root config file, and better log for SHOW_ENV
 
