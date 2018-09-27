@@ -1,5 +1,14 @@
+
+.. Note::
+	9/27/18 scons_bn tag 1.7
+
+|
+
+
 9/27/19
 - xercesc lib64 only needed on posix
+
+
 
 11/17/17
 - added root path from the root config file, and better log for SHOW_ENV
