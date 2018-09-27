@@ -5,8 +5,19 @@
 |
 
 
-9/27/19
+9/27/18
 - xercesc lib64 only needed on posix
+
+7/29/18
+- cadmesh includes are all inside the include dir
+
+5/31/18
+- added lib64 for xercesc
+
+.. Note::
+	3/9/18 scons_bn tag 1.6
+
+|
 
 
 
