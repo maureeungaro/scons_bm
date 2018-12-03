@@ -30,7 +30,9 @@ def loadqt(env) :
 		env.Append(LINKFLAGS  = "-rpath " + QTDIR + "/lib" )
 
 	else:
-		env['ENV']['PKG_CONFIG_PATH'] = os.environ['PKG_CONFIG_PATH']
+		if os.environ.get('PKG_CONFIG_PATH') is not None:
+			env['ENV']['PKG_CONFIG_PATH'] = os.environ['PKG_CONFIG_PATH']
+
 		env.EnableQt5Modules(qtModules)
 		env.Append(CPPFLAGS = ' -fPIC')
 
