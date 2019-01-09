@@ -11,10 +11,10 @@ def loadxerces(env) :
 	env.Append(CPPPATH = xercesincs)
 
 	## library paths
-	## some OS need lib64
 	xercesldir1 = [XERCESCROOT + '/lib']
 	env.Append(LIBPATH = xercesldir1)
 
+	## some OS need lib64
 	if env['PLATFORM'] == 'posix':
 		xercesldir2 = [XERCESCROOT + '/lib64']
 		env.Append(LIBPATH = xercesldir2)
@@ -30,5 +30,5 @@ def loadxerces(env) :
 	if env['SHOWENV'] == "1":
 		print "\n > Loading XERCESC software from ", XERCESCROOT
 		print "   XERCESC include flags: ",  xercesincs
-		print "   XERCESC libraries path: ", xercesldir
+		print "   XERCESC libraries path: ", xercesldir1
 		print "   XERCESC libraries: ",      xerceslibs
