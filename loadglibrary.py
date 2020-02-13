@@ -37,8 +37,8 @@ def loadglibrary(env) :
 	env.Append(LIBS = glibs)
 
 	if env['SHOWENV'] == "1":
-		print "\n > Loading GLIBRARY software from ", GLIBRARY
-		print "   GLIBRARY include flags: ",  gincludes
-		print "   GLIBRARY libraries path: ", glibrarydir
-		print "   GLIBRARY libraries: ",      glibs
+		print ("\n > Loading GLIBRARY software from ", GLIBRARY)
+		print ("   GLIBRARY include flags: ",  gincludes)
+		print ("   GLIBRARY libraries path: ", glibrarydir)
+		print ("   GLIBRARY libraries: ",      glibs)
 

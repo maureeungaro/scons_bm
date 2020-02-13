@@ -6,7 +6,7 @@ def loadmu(env) :
 	MU     = OSENV['MU']
 	check_if_dir_exist('MU')
 	if env['SHOWENV'] == "1":
-		print "Loading MU software from ", MU
+		print ("Loading MU software from ", MU)
 
 	env.Append(CXXFLAGS = env['INCPREFIX'] + MU + '/v4')
 	env.Append(CXXFLAGS = env['INCPREFIX'] + MU + '/src')

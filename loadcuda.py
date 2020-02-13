@@ -19,7 +19,7 @@ def loadcuda(env) :
 		env.Append(CUDA_FLAGS=' -deviceemu ')
 			
 	if env['SHOWENV'] == "1":
-		print "Loading CUDA software from ", CUDA_HOME, CUDA_FLAGS
+		print ("Loading CUDA software from ", CUDA_HOME, CUDA_FLAGS)
 
 	
 	cuda_bld = Builder(action = '/usr/local/cuda/bin/nvcc  $CUDA_FLAGS -o $TARGETS -c $SOURCES',

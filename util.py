@@ -9,7 +9,7 @@ def check_if_dir_exist(system) :
 	OSENV = os.environ
 	SYSTEM = OSENV[system]
 	if os.path.exists(SYSTEM) == False :
-		print "  !! Error: " , SYSTEM , " does not exist. Maybe ", system, " is not installed?"
+		print ("  !! Error: " , SYSTEM , " does not exist. Maybe ", system, " is not installed?")
 		sys.exit(1)
 
 def get_subdirectories(dir, reject=''):
@@ -73,22 +73,22 @@ def loadoptions(env) :
 		env['CXXCOM']   = "${TEMPFILE('%s')}" % env['CXXCOM'] 
 	
 	if env['SHOWENV'] == "1":
-		print "  "
-		print "Compiler: ", env['CC']
-		print "Linker: ",   env.subst('$LINK')
-		print "Platform: ", env['PLATFORM']
-		print "  "
+		print ("  ")
+		print ("Compiler: ", env['CC'])
+		print ("Linker: ",   env.subst('$LINK'))
+		print ("Platform: ", env['PLATFORM'])
+		print ("  ")
 	
 	if env['OPT'] == "1":
 		if env['PLATFORM'] == 'posix':
 			env.Append(CXXFLAGS = '-O2')
-			print "Compiling with -O2 optimization."
+			print ("Compiling with -O2 optimization.")
 		if env['PLATFORM'] == 'darwin':
 			env.Append(CXXFLAGS = '-O2')
-			print "Compiling with -O2 optimization."
+			print ("Compiling with -O2 optimization.")
 		if env['PLATFORM'] == 'win32':
 			env.Append(CXXFLAGS = '/O2 /Gs')
-			print "Compiling with /O2 /Gs optimization."
+			print ("Compiling with /O2 /Gs optimization.")
 	
 #	if env['XERCES3'] == "1":
 #		OSENV  = os.environ
@@ -99,13 +99,13 @@ def loadoptions(env) :
 	if env['DEBUG'] == "1":
 		if env['PLATFORM'] == 'posix':
 			env.Append(CXXFLAGS = '-g')
-			print "Compiling with -g debug."
+			print ("Compiling with -g debug.")
 		if env['PLATFORM'] == 'darwin':
 			env.Append(CXXFLAGS = '-g')
-			print "Compiling with -g debug."
+			print ("Compiling with -g debug.")
 		if env['PLATFORM'] == 'win32':
 			env.Append(CXXFLAGS = '/DEBUG')	
-			print "Compiling with -/DEBUG debug."
+			print ("Compiling with -/DEBUG debug.")
 	
 	if env['ARCHI'] == 'x86':
 		env.Append(CXXFLAGS  = '-m32 ')
@@ -117,7 +117,7 @@ def loadoptions(env) :
 		if env['PLATFORM'] == 'posix':
 			env.Append(CXXFLAGS = '-pg')
 			env.Append(LINKFLAGS = '-pg')
-			print "Compiling with -pg profiling."
+			print ("Compiling with -pg profiling.")
 	
 
 	# using c++11 starting from ceInstall 1.4 version

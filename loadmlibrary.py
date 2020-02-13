@@ -37,8 +37,8 @@ def loadmlibrary(env) :
 	env.Append(LIBS = mlibs)
 
 	if env['SHOWENV'] == "1":
-		print "\n > Loading MLIBRARY software from ", MLIBRARY
-		print "   MLIBRARY include flags: ",  mincludes
-		print "   MLIBRARY libraries path: ", mlibrarydir
-		print "   MLIBRARY libraries: ",      mlibs
+		print ("\n > Loading MLIBRARY software from ", MLIBRARY)
+		print ("   MLIBRARY include flags: ",  mincludes)
+		print ("   MLIBRARY libraries path: ", mlibrarydir)
+		print ("   MLIBRARY libraries: ",      mlibs)
 

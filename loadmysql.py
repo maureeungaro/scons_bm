@@ -7,7 +7,7 @@ def loadmysql(env) :
 	MYSQINC = OSENV['MYSQINC']
 	check_if_dir_exist('MYSQL')
 	if env['SHOWENV'] == "1":
-		print "Loading Mysql software from ", MYSQL
+		print ("Loading Mysql software from ", MYSQL)
 
 	mysqincs = []
 	mysqincs.append(MYSQINC)

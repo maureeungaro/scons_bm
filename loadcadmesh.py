@@ -41,8 +41,8 @@ def loadcadmesh(env) :
 	env.Append(LIBS = mlibs)
 
 	if env['SHOWENV'] == "1":
-		print "\n > Loading Cadmesh software from ", MLIBRARY
-		print "   Cadmesh include flags: ",  mincludes
-		print "   Cadmesh libraries path: ", mlibrarydir
-		print "   Cadmesh libraries: ",      mlibs
+		print ("\n > Loading Cadmesh software from ", MLIBRARY)
+		print ("   Cadmesh include flags: ",  mincludes)
+		print ("   Cadmesh libraries path: ", mlibrarydir)
+		print ("   Cadmesh libraries: ",      mlibs)
 

@@ -28,7 +28,7 @@ def loadclhep(env) :
 
 	# print environment if requested
 	if env['SHOWENV'] == "1":
-		print "\n > Loading CLHEP software from ", CLHEP_BASE_DIR
-		print "   CLHEP include flags: ",  clhepincs
-		print "   CLHEP libraries path: ", clhldir
-		print "   CLHEP libraries: ",      clhlibs
+		print ("\n > Loading CLHEP software from ", CLHEP_BASE_DIR)
+		print ("   CLHEP include flags: ",  clhepincs)
+		print ("   CLHEP libraries path: ", clhldir)
+		print ("   CLHEP libraries: ",      clhlibs)

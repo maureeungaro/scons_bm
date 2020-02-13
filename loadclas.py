@@ -6,7 +6,7 @@ def loadclas(env) :
 	CLAS6LIB = OSENV['CLAS6LIB']
 	CERNLIB  = OSENV['CERNLIB']
 	if env['SHOWENV'] == "1":
-		print "Loading CLAS software from ", CLAS_PACK
+		print ("Loading CLAS software from ", CLAS_PACK)
 
 	env.Append(CXXFLAGS = env['INCPREFIX'] + CLAS6INC)
 #	env.Append(CXXFLAGS = env['INCPREFIX'] + CLAS_PACK + '/inc_derived')

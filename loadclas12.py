@@ -29,6 +29,6 @@ def loadclas12(env) :
 	env.Append(LIBS = c12libs)
 
 	if env['SHOWENV'] == "1":
-		print "\n > Loading BANKS software from ", BANKS
-		print "   > Loading GEMC software from ", GEMC
-		print "\n > BANKS, GEMC  libraries: ",  c12libs
+		print ("\n > Loading BANKS software from ", BANKS)
+		print ("   > Loading GEMC software from ", GEMC)
+		print ("\n > BANKS, GEMC  libraries: ",  c12libs)

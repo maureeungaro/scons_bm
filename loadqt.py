@@ -38,5 +38,5 @@ def loadqt(env) :
 
 	# Qt existance is already checked
 	if env['SHOWENV'] == "1":
-		print "\n > Loading QT5 software from ",  QTDIR , "for ", env['PLATFORM']
-		print "   Qt Modules: ",  qtModules
+		print ("\n > Loading QT5 software from ",  QTDIR , "for ", env['PLATFORM'])
+		print ("   Qt Modules: ",  qtModules)

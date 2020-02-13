@@ -28,7 +28,7 @@ def loadxerces(env) :
 
 	# print environment if requested
 	if env['SHOWENV'] == "1":
-		print "\n > Loading XERCESC software from ", XERCESCROOT
-		print "   XERCESC include flags: ",  xercesincs
-		print "   XERCESC libraries path: ", xercesldir1
-		print "   XERCESC libraries: ",      xerceslibs
+		print ("\n > Loading XERCESC software from ", XERCESCROOT)
+		print ("   XERCESC include flags: ",  xercesincs)
+		print ("   XERCESC libraries path: ", xercesldir1)
+		print ("   XERCESC libraries: ",      xerceslibs)

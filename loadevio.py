@@ -42,7 +42,7 @@ def loadevio(env) :
 
 	# print environment if requested
 	if env['SHOWENV'] == "1":
-		print "\n > Loading EVIO software from ", EVIO
-		print "   EVIO include flags: ",  evioincs1, evioincs2
-		print "   EVIO libraries path: ", evioldir
-		print "   EVIO libraries: ",      eviolibs
+		print ("\n > Loading EVIO software from ", EVIO)
+		print ("   EVIO include flags: ",  evioincs1, evioincs2)
+		print ("   EVIO libraries path: ", evioldir)
+		print ("   EVIO libraries: ",      eviolibs)

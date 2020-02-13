@@ -20,7 +20,7 @@ def loadccdb(env) :
 
 	# print environment if requested
 	if env['SHOWENV'] == "1":
-		print "\n > Loading CCDB software from ", CCDB_HOME
-		print "   CCDB include flags: ",  ccdbincs
-		print "   CCDB libraries path: ", ccdblibp
-		print "   CCDB libraries: ",      ccdblibs
+		print ("\n > Loading CCDB software from ", CCDB_HOME)
+		print ("   CCDB include flags: ",  ccdbincs)
+		print ("   CCDB libraries path: ", ccdblibp)
+		print ("   CCDB libraries: ",      ccdblibs)

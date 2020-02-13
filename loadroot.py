@@ -38,10 +38,10 @@ def loadroot(env) :
 	env.Append(LIBPATH = root_libpath )
 
 	if env['SHOWENV'] == "1":
-		print "\n > Loading ROOT software from ", ROOTSYS
-		print "   ROOT include flags: ",  inc_path
-		print "   ROOT libraries path: ", root_libpath
-		print "   ROOT libraries: ",      rootlibs
+		print ("\n > Loading ROOT software from ", ROOTSYS)
+		print ("   ROOT include flags: ",  inc_path)
+		print ("   ROOT libraries path: ", root_libpath)
+		print ("   ROOT libraries: ",      rootlibs)
 
 	env.Append(LIBS = rootlibs)
 
