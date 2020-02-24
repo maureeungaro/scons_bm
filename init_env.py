@@ -59,6 +59,9 @@ def init_environment(reqlist) :
 		if l == "mlibrary":
 			from loadmlibrary import loadmlibrary
 			loadmlibrary(env)
+		if l == "glibrary":
+			from loadglibrary import loadglibrary
+			loadglibrary(env)
 		if l == "mysql":
 			from loadmysql import loadmysql
 			loadmysql(env)
