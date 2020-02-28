@@ -20,6 +20,11 @@ def get_subdirectories(dir, reject=''):
 def unique(list) :
 	return dict.fromkeys(list).keys()
 
+
+
+# In Python 3, dict.keys() returns a dict_keys object (a view of the dictionary);
+# unlike Python 2, where dict.keys() returns a list object.
+# To return the list here, we add list(object)
 def scanFiles(dir, accept=["include"], reject=[]) :
 	sources = []
 	paths = recursiveDirs(dir)
@@ -28,7 +33,7 @@ def scanFiles(dir, accept=["include"], reject=[]) :
 			sources+=glob.glob(path+"/"+pattern)
 	for pattern in reject :
 		sources = filter( (lambda a : a.rfind(pattern)==-1 ),  sources )
-	return unique(sources)
+	return list(unique(sources))
 
 def subdirsContaining(root, patterns):
 	dirs = unique(map(os.path.dirname, scanFiles(root, patterns)))
