@@ -11,7 +11,7 @@ def loadglibrary(env) :
 	check_if_dir_exist('GLIBRARY')
 
 	## includes
-	gincs = ['goptions', 'gstring', 'gfactory', 'gtouchable', 'ghit']
+	gincs = ['goptions', 'gstring', 'gfactory', 'gtouchable', 'ghit', 'gdata']
 	gincludes = []
 	for ginc in gincs:
 		thisInc =  GLIBRARY + '/' + ginc
