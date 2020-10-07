@@ -50,6 +50,9 @@ def init_environment(reqlist) :
 		if l == "geant4":
 			from loadgeant4 import loadgeant4
 			loadgeant4(env)
+		if l == "hipo":
+			from loadhipo import loadhipo
+			loadhipo(env)
 		if l == "jana":
 			from loadjana import loadjana
 			loadjana(env)
