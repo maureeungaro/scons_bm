@@ -17,6 +17,10 @@ def loadhipo(env) :
 	## libraries
 	hipolibs = ['hipo4']
 	hipolibs.append('lz4')
+	if env['LIBRARY'] == 'shared':
+		env.Append(LIBPATH = [HIPO + '/slib'])
+
 	env.Append(LIBPATH = [HIPO + '/lib'])
+
 	env.Append(LIBS = hipolibs)
 
