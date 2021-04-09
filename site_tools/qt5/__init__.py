@@ -44,16 +44,16 @@ import SCons.Scanner
 import SCons.Tool
 import SCons.Util
 
-class ToolQt5Warning(SCons.Warnings.Warning):
-    pass
+#class ToolQt5Warning(SCons.Warnings.Warning):
+#    pass
 
-class GeneratedMocFileNotIncluded(ToolQt5Warning):
-    pass
+#class GeneratedMocFileNotIncluded(ToolQt5Warning):
+#    pass
 
-class QtdirNotFound(ToolQt5Warning):
-    pass
+#class QtdirNotFound(ToolQt5Warning):
+#    pass
 
-SCons.Warnings.enableWarningClass(ToolQt5Warning)
+# SCons.Warnings.enableWarningClass(ToolQt5Warning)
 
 try:
     sorted
