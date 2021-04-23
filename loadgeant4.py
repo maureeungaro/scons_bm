@@ -8,7 +8,8 @@ def loadgeant4(env, OSENV) :
 	# Geant 4 additional compiler options
 	env.Append(CXXFLAGS='-DG4OPTIMISE')
 	env.Append(CXXFLAGS='-DG4_STORE_TRAJECTORY')
-	
+	#env.Append(CXXFLAGS='-DG4MULTITHREADED')
+
 	## includes
 	# Stripping all entries that are not geant4 related
 	validg4incs = []
