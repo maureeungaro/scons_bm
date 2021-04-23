@@ -1,10 +1,9 @@
 import os
-from util import subdirsContaining, scanFiles, check_if_dir_exist
+from util import scanFiles, check_if_dir_exist
 
-def loadgeant4(env) :
-	OSENV = os.environ
+def loadgeant4(env, OSENV) :
 	G4INSTALL = OSENV['G4INSTALL']
-	check_if_dir_exist('G4INSTALL')
+	check_if_dir_exist('G4INSTALL', G4INSTALL)
 
 	# Geant 4 additional compiler options
 	env.Append(CXXFLAGS='-DG4OPTIMISE')

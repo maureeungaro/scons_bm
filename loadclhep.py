@@ -1,10 +1,9 @@
 import os
 from util import scanFiles, check_if_dir_exist
 
-def loadclhep(env) :
-	OSENV = os.environ
+def loadclhep(env, OSENV) :
 	CLHEP_BASE_DIR = OSENV['CLHEP_BASE_DIR']
-	check_if_dir_exist('CLHEP_BASE_DIR')
+	check_if_dir_exist('CLHEP_BASE_DIR', CLHEP_BASE_DIR)
 
 	## includes
 	clhepincs = [CLHEP_BASE_DIR + '/include']

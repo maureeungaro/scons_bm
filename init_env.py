@@ -5,82 +5,100 @@ from SCons.Environment import *
 from SCons.Variables import *
 from SCons.Script import *
 
+
 def init_environment(reqlist) :
+	print("Initializing Environment:")
 	opts = Variables()
+	print(" - Variables")
 	cmloptions(opts)
+	OSENV = os.environ
+	print(" - os.environ")
 
 	# first check if there's qt5 in the requirement
+	print("Loading environment...")
 	need_qt5 = 0
 	list = reqlist.split()
 	for l in list:
 		if l == "qt5":
-			check_if_dir_exist('QTDIR')
-			env = Environment(tools=['default', 'qt5'], options = opts, ENV = os.environ)
+			QTDIR = OSENV['QTDIR']
+			check_if_dir_exist('QTDIR', QTDIR)
+			env = Environment(tools=['default', 'qt5'], options = opts)
+			print("QT5 environment is loaded")
 			need_qt5 = 1
 			break
 
 	# if not, build default
 	if need_qt5 == 0:
-		env = Environment(options = opts)
+		env = Environment(tools=['default'], options = opts)
+		print("Default environment is loaded")
 
+	sdebug = 0;
+	if env['SDEBUG'] == "1":
+		sdebug = 1
+		print("SDEBUG is set")
 
 	# Now scanning the dependencies
 	for l in list:
 		if l == "cadmesh":
 			from loadcadmesh import loadcadmesh
 			loadcadmesh(env)
-		if l == "ccdb":
+		elif l == "ccdb":
 			from loadccdb import loadccdb
 			loadccdb(env)
-		if l == "clas":
+		elif l == "clas":
 			from loadclas import loadclas
 			loadclas(env)
-		if l == "clas12":
+		elif l == "clas12":
 			from loadclas12 import loadclas12
 			loadclas12(env)
-		if l == "clhep":
+		elif l == "clhep":
 			from loadclhep import loadclhep
-			loadclhep(env)
-		if l == "cuda":
+			loadclhep(env, OSENV)
+		elif l == "cuda":
 			from loadcuda import loadcuda
 			loadcuda(env)
-		if l == "evio":
+		elif l == "evio":
 			from loadevio import loadevio
 			loadevio(env)
-		if l == "geant4":
+		elif l == "geant4":
 			from loadgeant4 import loadgeant4
-			loadgeant4(env)
-		if l == "hipo":
+			loadgeant4(env, OSENV)
+		elif l == "hipo":
 			from loadhipo import loadhipo
 			loadhipo(env)
-		if l == "jana":
+		elif l == "jana":
 			from loadjana import loadjana
 			loadjana(env)
-		if l == "mu":
+		elif l == "mu":
 			from loadmu import loadmu
 			loadmu(env)
-		if l == "mlibrary":
+		elif l == "mlibrary":
 			from loadmlibrary import loadmlibrary
 			loadmlibrary(env)
-		if l == "glibrary":
+		elif l == "glibrary":
 			from loadglibrary import loadglibrary
-			loadglibrary(env)
-		if l == "mysql":
+			loadglibrary(env, OSENV)
+		elif l == "mysql":
 			from loadmysql import loadmysql
 			loadmysql(env)
-		if l == "qt5":
+		elif l == "qt5":
+			QTDIR = OSENV['QTDIR']
 			from loadqt import loadqt
-			loadqt(env)
-		if l == "root":
+			loadqt(env, QTDIR)
+		elif l == "root":
 			from loadroot import loadroot
 			loadroot(env)
-		if l == "xercesc":
+		elif l == "xercesc":
 			from loadxerces import loadxerces
 			loadxerces(env)
 
 	# generating help list
 	Help(opts.GenerateHelpText(env))
+	if sdebug == 1:
+		print("Help List Generated")
 	# loading options
 	loadoptions(env)
+	if sdebug == 1:
+		print("Options Loaded")
 	return env
 	

@@ -5,10 +5,9 @@ import re
 
 # GLIBRARY already has the version in it
 
-def loadglibrary(env) :
-	OSENV = os.environ
+def loadglibrary(env, OSENV) :
 	GLIBRARY = OSENV['GLIBRARY']
-	check_if_dir_exist('GLIBRARY')
+	check_if_dir_exist('GLIBRARY', GLIBRARY)
 
 	## includes
 	gincs = ['goptions', 'gstring', 'gfactory', 'gtouchable', 'ghit', 'gdata']

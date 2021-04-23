@@ -1,5 +1,5 @@
 import os
-from util import subdirsContaining, check_if_dir_exist
+from util import check_if_dir_exist
 
 def loadxerces(env) :
 	OSENV  = os.environ

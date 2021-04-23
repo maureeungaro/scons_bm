@@ -1,9 +1,6 @@
 import os
 
-def loadqt(env) :
-
-	OSENV = os.environ
-	QTDIR = OSENV['QTDIR']
+def loadqt(env, QTDIR) :
 
 	# QtCore, QtGui, QtWidgets, QtOpenGL, QtPrintSupport are enabled in geant4
 	# However when compiling non-geant4 apps they need to be included

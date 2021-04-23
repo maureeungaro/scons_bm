@@ -5,9 +5,7 @@ import sys
 def recursiveDirs(root) :
 	return filter( (lambda a : a.rfind( "CVS")==-1 ),  [ a[0] for a in os.walk(root)]  )
 
-def check_if_dir_exist(system) :
-	OSENV = os.environ
-	SYSTEM = OSENV[system]
+def check_if_dir_exist(system, SYSTEM) :
 	if os.path.exists(SYSTEM) == False :
 		print ("  !! Error: " , SYSTEM , " does not exist. Maybe ", system, " is not installed?")
 		sys.exit(1)
@@ -19,7 +17,6 @@ def get_subdirectories(dir, reject=''):
 					
 def unique(list) :
 	return dict.fromkeys(list).keys()
-
 
 
 # In Python 3, dict.keys() returns a dict_keys object (a view of the dictionary);
@@ -35,16 +32,21 @@ def scanFiles(dir, accept=["include"], reject=[]) :
 		sources = filter( (lambda a : a.rfind(pattern)==-1 ),  sources )
 	return list(unique(sources))
 
-def subdirsContaining(root, patterns):
-	dirs = unique(map(os.path.dirname, scanFiles(root, patterns)))
-	dirs.sort()
-	return dirs
+#def subdirsContaining(root, patterns):
+#	print("subdirsContaining")
+#	dirs = unique(map(os.path.dirname, scanFiles(root, patterns)))
+#	dirs.sort()
+#	return dirs
 
+# s is the original command line
+# target and src are lists of target source nodes respectively
 def print_cmd_line(s, target, src, env):
-    """s is the original command line, target and src are lists of target
-    and source nodes respectively, and env is the environment."""
-    sys.stdout.write("Compiling %s...\n"%\
-         (' and '.join([str(x) for x in target])))
+	c=s.split()
+	sys.stdout.write("Building (%s) %s -> %s...\n" %
+	(c[0],
+	' and '.join([str(x) for x in src]),
+	' and '.join([str(x) for x in target])))
+
 
 def loadoptions(env) :
 	# EHsc and MD only for win32 envs
@@ -56,7 +58,7 @@ def loadoptions(env) :
 		env.AppendUnique(LIBPATH = [os.environ['MSLIBS']])
 		env.AppendUnique(LIBPATH = [os.environ['SDKLIBS']])
 
-	if env['PLATFORM'] == 'posix':
+	elif env['PLATFORM'] == 'posix':
 		env.Append(ENV = {'PATH': os.environ['PATH']})
 		env.Append(CXXFLAGS = '-fexceptions')
 		env.Append(CXXFLAGS = '-fstack-protector')
@@ -64,9 +66,8 @@ def loadoptions(env) :
 		env.Append(LIBS = 'dl')
 		if env['LIBRARY'] == 'shared':
 			env.Append(CPPFLAGS = ' -fPIC')
-	
-	
-	if env['PLATFORM'] == 'darwin':
+
+	elif env['PLATFORM'] == 'darwin':
 		env.Append(CXXFLAGS = '-fexceptions')
 		env.Append(CXXFLAGS = '-fstack-protector')
 		env.Append(CXXFLAGS = '-Wall')
@@ -88,10 +89,10 @@ def loadoptions(env) :
 		if env['PLATFORM'] == 'posix':
 			env.Append(CXXFLAGS = '-O2')
 			print ("Compiling with -O2 optimization.")
-		if env['PLATFORM'] == 'darwin':
+		elif env['PLATFORM'] == 'darwin':
 			env.Append(CXXFLAGS = '-O2')
 			print ("Compiling with -O2 optimization.")
-		if env['PLATFORM'] == 'win32':
+		elif env['PLATFORM'] == 'win32':
 			env.Append(CXXFLAGS = '/O2 /Gs')
 			print ("Compiling with /O2 /Gs optimization.")
 	
@@ -105,10 +106,10 @@ def loadoptions(env) :
 		if env['PLATFORM'] == 'posix':
 			env.Append(CXXFLAGS = '-g')
 			print ("Compiling with -g debug.")
-		if env['PLATFORM'] == 'darwin':
+		elif env['PLATFORM'] == 'darwin':
 			env.Append(CXXFLAGS = '-g')
 			print ("Compiling with -g debug.")
-		if env['PLATFORM'] == 'win32':
+		elif env['PLATFORM'] == 'win32':
 			env.Append(CXXFLAGS = '/DEBUG')	
 			print ("Compiling with -/DEBUG debug.")
 	
@@ -123,10 +124,6 @@ def loadoptions(env) :
 			env.Append(CXXFLAGS = '-pg')
 			env.Append(LINKFLAGS = '-pg')
 			print ("Compiling with -pg profiling.")
-	
-
-	# using c++11 starting from ceInstall 1.4 version
-	env.Append(CXXFLAGS = ' -std=c++11 ')
 
 
 def cmloptions(opts) :
@@ -139,4 +136,6 @@ def cmloptions(opts) :
 	opts.Add('CUDA_EMU',  'Set to 1 to compile in video-card emulation mode', 0)
 	opts.Add('XERCES3',   'Set to 1 to compile with option -DXERCES3=1', 0)
 	opts.Add('LIBRARY',   'Set at run time to compile shared or static library', 0)
-	
+	opts.Add('SDEBUG',    'Set to 1 to profile scons calls', 0)
+	print(" - Command Line Options")
+
