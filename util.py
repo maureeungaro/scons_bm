@@ -124,6 +124,9 @@ def loadoptions(env) :
 			env.Append(LINKFLAGS = '-pg')
 			print ("Compiling with -pg profiling.")
 
+	# using c++17 standards
+	env.Append(CXXFLAGS = ' -std=c++17 ')
+
 
 def cmloptions(opts) :
 	opts.Add('ARCHI',     'Set to x86 to force 32 bit environment', 0)
