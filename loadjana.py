@@ -1,8 +1,6 @@
 from util import check_if_dir_exist
-import os
 
-def loadjana(env) :
-	OSENV  = os.environ
+def loadjana(env, OSENV) :
 	JANA_HOME = OSENV['JANA_HOME']
 	check_if_dir_exist('JANA_HOME')
 	if env['SHOWENV'] == "1":

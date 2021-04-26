@@ -1,10 +1,8 @@
 from util import check_if_dir_exist
-import os
 
-def loadevio(env) :
-	OSENV = os.environ
+def loadevio(env, OSENV) :
 	EVIO = OSENV['EVIO']
-	check_if_dir_exist('EVIO')
+	check_if_dir_exist('EVIO', EVIO)
 
 	## includes
 	evioincs1 = [EVIO + '/src/libsrc']

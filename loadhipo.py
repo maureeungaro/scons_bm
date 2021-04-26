@@ -1,15 +1,14 @@
 from util import check_if_dir_exist
-import os
 
-def loadhipo(env) :
-	OSENV  = os.environ
+def loadhipo(env, OSENV) :
 	HIPO = OSENV['HIPO']
-	check_if_dir_exist('HIPO')
+	check_if_dir_exist('HIPO', HIPO)
+
 	if env['SHOWENV'] == "1":
 		print ("Loading HIPO software from ", HIPO)
 
 	## includes
-	env.Append(CPPPATH = HIPO )
+	env.Append(CPPPATH = HIPO)
 
 	## flags
 	env.Append(LINKFLAGS = '-rdynamic')

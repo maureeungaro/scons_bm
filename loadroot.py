@@ -2,10 +2,10 @@ from util import check_if_dir_exist
 import os
 import re
 
-def loadroot(env) :
+def loadroot(env, OSENV) :
 
-	ROOTSYS = os.environ.get('ROOTSYS')
-	check_if_dir_exist('ROOTSYS')
+	ROOTSYS = OSENV['ROOTSYS']
+	check_if_dir_exist('ROOTSYS', ROOTSYS)
 
 	inc_path = []
 

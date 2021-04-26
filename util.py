@@ -42,10 +42,9 @@ def scanFiles(dir, accept=["include"], reject=[]) :
 # target and src are lists of target source nodes respectively
 def print_cmd_line(s, target, src, env):
 	c=s.split()
-	sys.stdout.write("Building (%s) %s -> %s...\n" %
+	sys.stdout.write("Building (%s) %s\n" %
 	(c[0],
-	' and '.join([str(x) for x in src]),
-	' and '.join([str(x) for x in target])))
+	', '.join([str(x) for x in src]) )  )
 
 
 def loadoptions(env) :

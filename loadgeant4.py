@@ -1,5 +1,5 @@
-import os
 from util import scanFiles, check_if_dir_exist
+import os
 
 def loadgeant4(env, OSENV) :
 	G4INSTALL = OSENV['G4INSTALL']

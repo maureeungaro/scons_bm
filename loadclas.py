@@ -1,7 +1,4 @@
-import os
-
-def loadclas(env) :
-	OSENV  = os.environ
+def loadclas(env, OSENV) :
 	CLAS6INC = OSENV['CLAS6INC']
 	CLAS6LIB = OSENV['CLAS6LIB']
 	CERNLIB  = OSENV['CERNLIB']

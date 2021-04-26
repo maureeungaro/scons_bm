@@ -5,10 +5,9 @@ import re
 
 # MLIBRARY already has the version in it
 
-def loadmlibrary(env) :
-	OSENV = os.environ
+def loadmlibrary(env, OSENV) :
 	MLIBRARY = OSENV['MLIBRARY']
-	check_if_dir_exist('MLIBRARY')
+	check_if_dir_exist('MLIBRARY', MLIBRARY)
 
 	## includes
 	mincs = ['options', 'translationTable', 'splash', 'gruns', 'textProgressBar', 'gstring', 'frequencySyncSignal', 'qtButtonsWidget', 'gdynamic', 'gvolume', 'g4volume', 'g4display',  'gmedia']

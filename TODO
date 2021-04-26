@@ -1,3 +1,9 @@
+ERROR if env is not found: give correct reason!
+
+This is always repeated, maybe check_if_dir_exist could be passed ENV and the string only
+	HIPO = OSENV['HIPO']
+	check_if_dir_exist('HIPO', HIPO)
+
 - standardize definition of paths, libraries, messages
 - remove obsolete packages
 - add coatjava

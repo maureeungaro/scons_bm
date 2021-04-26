@@ -1,13 +1,11 @@
 from util import check_if_dir_exist
-import os
 from SCons.Builder import *
 
 
-def loadcuda(env) :
-	OSENV  = os.environ
+def loadcuda(env, OSENV) :
 	CUDA_HOME = OSENV['CUDA_HOME']
 	CUDA_LIB  = OSENV['CUDA_LIB']
-	check_if_dir_exist('CUDA_HOME')
+	check_if_dir_exist('CUDA_HOME', CUDA_HOME)
 
 	# Cuda compiler options
 	env.Append(CUDA_FLAGS = env['INCPREFIX'] + CUDA_HOME + '/include ')

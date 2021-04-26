@@ -41,16 +41,16 @@ def init_environment(reqlist) :
 	for l in list:
 		if l == "cadmesh":
 			from loadcadmesh import loadcadmesh
-			loadcadmesh(env)
+			loadcadmesh(env, OSENV)
 		elif l == "ccdb":
 			from loadccdb import loadccdb
-			loadccdb(env)
+			loadccdb(env, OSENV)
 		elif l == "clas":
 			from loadclas import loadclas
-			loadclas(env)
+			loadclas(env, OSENV)
 		elif l == "clas12":
 			from loadclas12 import loadclas12
-			loadclas12(env)
+			loadclas12(env, OSENV)
 		elif l == "clhep":
 			from loadclhep import loadclhep
 			loadclhep(env, OSENV)
@@ -59,38 +59,38 @@ def init_environment(reqlist) :
 			loadcuda(env)
 		elif l == "evio":
 			from loadevio import loadevio
-			loadevio(env)
+			loadevio(env, OSENV)
 		elif l == "geant4":
 			from loadgeant4 import loadgeant4
 			loadgeant4(env, OSENV)
 		elif l == "hipo":
 			from loadhipo import loadhipo
-			loadhipo(env)
+			loadhipo(env, OSENV)
 		elif l == "jana":
 			from loadjana import loadjana
-			loadjana(env)
+			loadjana(env, OSENV)
 		elif l == "mu":
 			from loadmu import loadmu
-			loadmu(env)
+			loadmu(env, OSENV)
 		elif l == "mlibrary":
 			from loadmlibrary import loadmlibrary
-			loadmlibrary(env)
+			loadmlibrary(env, OSENV)
 		elif l == "glibrary":
 			from loadglibrary import loadglibrary
 			loadglibrary(env, OSENV)
 		elif l == "mysql":
 			from loadmysql import loadmysql
-			loadmysql(env)
+			loadmysql(env, OSENV)
 		elif l == "qt5":
 			QTDIR = OSENV['QTDIR']
 			from loadqt import loadqt
 			loadqt(env, QTDIR)
 		elif l == "root":
 			from loadroot import loadroot
-			loadroot(env)
+			loadroot(env, OSENV)
 		elif l == "xercesc":
 			from loadxerces import loadxerces
-			loadxerces(env)
+			loadxerces(env, OSENV)
 
 	# generating help list
 	Help(opts.GenerateHelpText(env))

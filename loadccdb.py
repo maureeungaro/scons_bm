@@ -1,10 +1,8 @@
 from util import check_if_dir_exist
-import os
 
-def loadccdb(env) :
-	OSENV  = os.environ
+def loadccdb(env, OSENV) :
 	CCDB_HOME = OSENV['CCDB_HOME']
-	check_if_dir_exist('CCDB_HOME')
+	check_if_dir_exist('CCDB_HOME', CCDB_HOME)
 
 	## includes
 	ccdbincs = [CCDB_HOME + '/include']

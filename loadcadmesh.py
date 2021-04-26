@@ -5,11 +5,9 @@ import re
 
 # MLIBRARY already has the version in it
 
-def loadcadmesh(env) :
-	OSENV = os.environ
+def loadcadmesh(env, OSENV) :
 	MLIBRARY = OSENV['MLIBRARY']
-	check_if_dir_exist('MLIBRARY')
-
+	check_if_dir_exist('MLIBRARY', MLIBRARY)
 
 	## includes
 	# mincs = ['cadmesh/include', 'cadmesh/external/assimp/include', 'cadmesh/external/tetgen']

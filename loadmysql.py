@@ -1,11 +1,9 @@
 from util import check_if_dir_exist
-import os
 
-def loadmysql(env) :
-	OSENV   = os.environ
+def loadmysql(env, OSENV) :
 	MYSQL   = OSENV['MYSQL']
 	MYSQINC = OSENV['MYSQINC']
-	check_if_dir_exist('MYSQL')
+	check_if_dir_exist('MYSQL', MYSQL)
 	if env['SHOWENV'] == "1":
 		print ("Loading Mysql software from ", MYSQL)
 

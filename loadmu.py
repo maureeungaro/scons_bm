@@ -1,10 +1,8 @@
 from util import check_if_dir_exist
-import os
 
-def loadmu(env) :
-	OSENV  = os.environ
-	MU     = OSENV['MU']
-	check_if_dir_exist('MU')
+def loadmu(env, OSENV) :
+	MU = OSENV['MU']
+	check_if_dir_exist('MU', MU)
 	if env['SHOWENV'] == "1":
 		print ("Loading MU software from ", MU)
 

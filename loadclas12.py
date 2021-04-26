@@ -1,12 +1,10 @@
 from util import check_if_dir_exist
-import os
 
-def loadclas12(env) :
-	OSENV = os.environ
+def loadclas12(env, OSENV) :
 	BANKS = OSENV['BANKS']
 	GEMC  = OSENV['GEMC']
-	check_if_dir_exist('BANKS')
-	check_if_dir_exist('GEMC')
+	check_if_dir_exist('BANKS', BANKS)
+	check_if_dir_exist('GEMC', GEMC)
 
 	env.Append(CPPPATH = [BANKS + '/src'])
 	env.Append(CPPPATH = [GEMC + '/src'])

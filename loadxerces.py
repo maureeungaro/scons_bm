@@ -1,10 +1,8 @@
-import os
 from util import check_if_dir_exist
 
-def loadxerces(env) :
-	OSENV  = os.environ
+def loadxerces(env, OSENV) :
 	XERCESCROOT = OSENV['XERCESCROOT']
-	check_if_dir_exist('XERCESCROOT')
+	check_if_dir_exist('XERCESCROOT', XERCESCROOT)
 
 	## includes
 	xercesincs = [XERCESCROOT + '/include']
