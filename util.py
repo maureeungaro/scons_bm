@@ -44,7 +44,7 @@ def print_cmd_line(s, target, src, env):
 	c=s.split()
 	sys.stdout.write("Building (%s) %s\n" %
 	(c[0],
-	', '.join([str(x) for x in src]) )  )
+	', '.join([str(x) for x in target]) )  )
 
 
 def loadoptions(env) :
@@ -125,6 +125,7 @@ def loadoptions(env) :
 			print ("Compiling with -pg profiling.")
 
 	# using c++17 standards
+	#env.Append(CXXFLAGS = ' -std=c++11 ')
 	env.Append(CXXFLAGS = ' -std=c++17 ')
 
 

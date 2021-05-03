@@ -6,9 +6,10 @@ def loadgeant4(env, OSENV) :
 	check_if_dir_exist('G4INSTALL', G4INSTALL)
 
 	# Geant 4 additional compiler options
+	# Notive: DG4MULTITHREADED is not needed because it's defined in the G4 headers when G4 is
+	# built with MT support
 	env.Append(CXXFLAGS='-DG4OPTIMISE')
 	env.Append(CXXFLAGS='-DG4_STORE_TRAJECTORY')
-	#env.Append(CXXFLAGS='-DG4MULTITHREADED')
 
 	## includes
 	# Stripping all entries that are not geant4 related

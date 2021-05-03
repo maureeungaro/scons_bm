@@ -32,6 +32,9 @@ def loadglibrary(env, OSENV) :
 		lib      = re.sub("\.a", "", wout_lib)
 		glibs.append(lib)
 
+	# c++ MT
+	glibs.append('pthread')
+
 
 	env.Append(LIBS = glibs)
 
