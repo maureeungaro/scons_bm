@@ -10,7 +10,7 @@ def loadglibrary(env, OSENV) :
 	check_if_dir_exist('GLIBRARY', GLIBRARY)
 
 	## includes
-	gincs = ['guts', 'goptions', 'gsplash', 'gdata', 'gfactory', 'gtouchable', 'ghit', 'gdynamicdigitization', 'gsystem', 'g4system']
+	gincs = ['guts', 'goptions', 'gsplash', 'gdata', 'gfactory', 'gtouchable', 'ghit', 'gdynamicdigitization', 'gsystem', 'g4system', 'gstreamer']
 	gincludes = []
 	for ginc in gincs:
 		thisInc =  GLIBRARY + '/' + ginc
