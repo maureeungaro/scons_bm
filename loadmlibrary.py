@@ -10,7 +10,7 @@ def loadmlibrary(env, OSENV) :
 	check_if_dir_exist('MLIBRARY', MLIBRARY)
 
 	## includes
-	mincs = ['options', 'translationTable', 'splash', 'gruns', 'textProgressBar', 'gstring', 'frequencySyncSignal', 'qtButtonsWidget', 'gdynamic', 'gvolume', 'g4volume', 'g4display',  'gmedia']
+	mincs = ['options', 'translationTable', 'splash', 'gstring', 'frequencySyncSignal']
 	mincludes = []
 	for minc in mincs:
 		thisInc =  MLIBRARY + '/' + minc
