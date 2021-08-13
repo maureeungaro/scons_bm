@@ -6,10 +6,9 @@ def loadgeant4(env, OSENV) :
 	check_if_dir_exist('G4INSTALL', G4INSTALL)
 
 	# Geant 4 additional compiler options
-	# Notive: DG4MULTITHREADED is not needed because it's defined in the G4 headers when G4 is
-	# built with MT support
+	# Notive: DG4_STORE_TRAJECTORY is on by default G4 in MT support
 	env.Append(CXXFLAGS='-DG4OPTIMISE')
-	env.Append(CXXFLAGS='-DG4_STORE_TRAJECTORY')
+	# env.Append(CXXFLAGS='-DG4_STORE_TRAJECTORY')
 
 	## includes
 	# Stripping all entries that are not geant4 related
@@ -77,6 +76,10 @@ def loadgeant4(env, OSENV) :
 		env.Append(CXXFLAGS='-I/System/Library/Frameworks/OpenGL.framework/Headers')
 		env.Append(LINKFLAGS = '-L/System/Library/Frameworks/OpenGL.framework/Libraries/')
 		validg4libs.append('GL')
+		# looks like these two are not inside
+		validg4libs.append('pthread')
+		validg4libs.append('G4ptl.0')
+		validg4libs.append('G4tasking')
 
 	if env['PLATFORM'] == 'win32':
 		validg4libs.append('glu32')
