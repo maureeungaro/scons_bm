@@ -11,7 +11,7 @@ def loadglibrary(env, OSENV) :
 
 	## includes
 	gincs1 = ['guts', 'goptions', 'gsplash', 'gdata', 'gfactory', 'gtouchable', 'ghit', 'gdynamicdigitization', 'gsystem', 'g4system']
-	gincs2 = ['gstreamer', 'textProgressBar', 'eventDispenser', 'gQtButtonsWidget', 'g4display']
+	gincs2 = ['gstreamer', 'textProgressBar', 'eventDispenser', 'gQtButtonsWidget', 'g4display', 'gtranslationTable']
 
 	gincs = gincs1 + gincs2
 
