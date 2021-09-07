@@ -42,6 +42,9 @@ def init_environment(reqlist) :
 		if l == "cadmesh":
 			from loadcadmesh import loadcadmesh
 			loadcadmesh(env, OSENV)
+		elif l == "gcadmesh":
+			from loadgcadmesh import loadcadmesh
+			loadcadmesh(env, OSENV)
 		elif l == "ccdb":
 			from loadccdb import loadccdb
 			loadccdb(env, OSENV)
