@@ -1,3 +1,5 @@
+import os
+
 def loadqt(env, QTDIR) :
 
 	# QtCore, QtGui, QtWidgets, QtOpenGL, QtPrintSupport are enabled in geant4
