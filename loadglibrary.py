@@ -10,8 +10,8 @@ def loadglibrary(env, OSENV) :
 	check_if_dir_exist('GLIBRARY', GLIBRARY)
 
 	## includes
-	gincs1 = ['guts', 'goptions', 'gsplash', 'gdata', 'gfactory', 'gtouchable', 'ghit', 'gdynamicDigitization', 'gsystem', 'g4system']
-	gincs2 = ['gstreamer', 'textProgressBar', 'eventDispenser', 'gQtButtonsWidget', 'g4display', 'gtranslationTable']
+	gincs1 = ['guts', 'goptions', 'gsplash', 'gdata', 'gfactory', 'gtouchable', 'gdynamicDigitization', 'ghit', 'gsystem', 'g4system']
+	gincs2 = ['gstreamer', 'eventDispenser', 'textProgressBar', 'gQtButtonsWidget', 'g4display', 'gtranslationTable']
 
 	gincs = gincs1 + gincs2
 
