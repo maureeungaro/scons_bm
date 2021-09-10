@@ -71,6 +71,9 @@ def loadgeant4(env, OSENV) :
 		# manually adding G4zlib
 		# looks like geant4-config does not provide it?
 		validg4libs.append('G4zlib')
+		validg4libs.append('pthread')
+		validg4libs.append('G4ptl.0')
+		validg4libs.append('G4tasking')
 
 	if env['PLATFORM'] == 'darwin':
 		env.Append(CXXFLAGS='-I/System/Library/Frameworks/OpenGL.framework/Headers')
