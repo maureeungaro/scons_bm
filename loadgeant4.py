@@ -72,7 +72,7 @@ def loadgeant4(env, OSENV) :
 		# looks like geant4-config does not provide it?
 		validg4libs.append('G4zlib')
 		validg4libs.append('pthread')
-		validg4libs.append('G4ptl.0')
+		validg4libs.append('G4ptl')
 		validg4libs.append('G4tasking')
 
 	if env['PLATFORM'] == 'darwin':
