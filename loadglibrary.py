@@ -44,6 +44,8 @@ def loadglibrary(env, OSENV) :
 	glibs.append('pthread')
 	glibs.append('ghit')
 	glibs.append('textProgressBar')
+	glibs.append('gdata')
+	glibs.append('gtranslationTable')
 
 	env.Append(LIBS = glibs)
 
