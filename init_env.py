@@ -94,6 +94,9 @@ def init_environment(reqlist) :
 		elif l == "xercesc":
 			from loadxerces import loadxerces
 			loadxerces(env, OSENV)
+		elif l == "c12bfields":
+			from loadbc12Map import loadbc12Map
+			loadbc12Map(env, OSENV)
 
 	# generating help list
 	Help(opts.GenerateHelpText(env))

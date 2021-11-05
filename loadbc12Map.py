@@ -1,8 +1,8 @@
 from util import check_if_dir_exist
 
-def loadevio(env, OSENV) :
+def loadbc12Map(env, OSENV) :
 	C12BFIELDS = OSENV['C12BFIELDS']
-	check_if_dir_exist('C12BFIELDS', EVIO)
+	check_if_dir_exist('C12BFIELDS', C12BFIELDS)
 
 	## includes
 	incs = [C12BFIELDS + 'includes']
