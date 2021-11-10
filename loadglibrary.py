@@ -39,13 +39,14 @@ def loadglibrary(env, OSENV) :
 	# c++ MT
 	glibs.append('pthread')
 
-	# appending ghit and textProgressBar libraries
-	# in Linux the order 
+	# appending glibraries
+	# to address Linux problems in -l order
 	glibs.append('pthread')
 	glibs.append('ghit')
 	glibs.append('textProgressBar')
 	glibs.append('gdata')
 	glibs.append('gtranslationTable')
+	glibs.append('gtouchable')
 
 	env.Append(LIBS = glibs)
 
