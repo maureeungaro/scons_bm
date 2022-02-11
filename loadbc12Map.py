@@ -5,7 +5,7 @@ def loadbc12Map(env, OSENV) :
 	check_if_dir_exist('C12BFIELDS', C12BFIELDS)
 
 	## includes
-	incs = [C12BFIELDS + 'includes']
+	incs = [C12BFIELDS + '/includes']
 	env.Append(CPPPATH = incs)
 
 

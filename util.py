@@ -124,8 +124,9 @@ def loadoptions(env) :
 			env.Append(LINKFLAGS = '-pg')
 			print ("Compiling with -pg profiling.")
 
-	# using c++17 standards
-	#env.Append(CXXFLAGS = ' -std=c++11 ')
+	# using c++11 standards
+	# env.Append(CXXFLAGS = ' -std=c++11 ')
+	using c++17 standards
 	env.Append(CXXFLAGS = ' -std=c++17 ')
 
 
