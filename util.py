@@ -126,7 +126,7 @@ def loadoptions(env) :
 
 	# using c++11 standards
 	# env.Append(CXXFLAGS = ' -std=c++11 ')
-	using c++17 standards
+	# using c++17 standards
 	env.Append(CXXFLAGS = ' -std=c++17 ')
 
 
