@@ -5,8 +5,8 @@ def loadhipo(env, OSENV) :
 	check_if_dir_exist('HIPO', HIPO)
 
 	if env['SHOWENV'] == "1":
-		print ("Loading HIPO software from ", HIPO)
-
+		print ("\n > Loading HIPO software from ", HIPO)
+	
 	## includes
 	env.Append(CPPPATH = HIPO)
 

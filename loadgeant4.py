@@ -98,10 +98,10 @@ def loadgeant4(env, OSENV) :
 
 	# print environment if requested
 	if env['SHOWENV'] == "1":
-		print ("Loading Geant4 software from ", G4INSTALL)
-		print ("Geant4 include flags: ",  validg4incs)
-		print ("Geant4 libraries path: ", libpath)
-		print ("Geant4 libraries: ",      validg4libs)
+		print ("\n > Loading Geant4 software from ", G4INSTALL)
+		print ("   Geant4 include flags: ",  validg4incs)
+		print ("   Geant4 libraries path: ", libpath)
+		print ("   Geant4 libraries: ",      validg4libs)
 
 
 
