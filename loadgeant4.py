@@ -69,7 +69,7 @@ def loadgeant4(env, OSENV) :
 		env.Append(CXXFLAGS='-DG4VIS_USE_OPENGLX')
 		validg4libs.append('GL')
 		# manually adding G4zlib
-		# looks like geant4-config does not provide it?
+		# looks like geant4-config does not provide these
 		validg4libs.append('G4zlib')
 		validg4libs.append('pthread')
 		validg4libs.append('G4ptl')
@@ -79,7 +79,7 @@ def loadgeant4(env, OSENV) :
 		env.Append(CXXFLAGS='-I/System/Library/Frameworks/OpenGL.framework/Headers')
 		env.Append(LINKFLAGS = '-L/System/Library/Frameworks/OpenGL.framework/Libraries/')
 		validg4libs.append('GL')
-		# looks like these two are not inside
+		# looks like geant4-config does not provide these
 		validg4libs.append('pthread')
 		validg4libs.append('G4ptl.0')
 		validg4libs.append('G4tasking')
