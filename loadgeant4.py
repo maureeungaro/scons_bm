@@ -76,8 +76,8 @@ def loadgeant4(env, OSENV) :
 		validg4libs.append('G4tasking')
 
 	if env['PLATFORM'] == 'darwin':
-		env.Append(CXXFLAGS='-I/System/Library/Frameworks/OpenGL.framework/Headers')
-		env.Append(LINKFLAGS = '-L/System/Library/Frameworks/OpenGL.framework/Libraries/')
+	#	env.Append(CXXFLAGS='-I/System/Library/Frameworks/OpenGL.framework/Headers')
+	#	env.Append(LINKFLAGS = '-L/System/Library/Frameworks/OpenGL.framework/Libraries/')
 		validg4libs.append('GL')
 		# looks like geant4-config does not provide these
 		validg4libs.append('pthread')
