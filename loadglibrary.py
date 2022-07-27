@@ -25,29 +25,27 @@ def loadglibrary(env, OSENV) :
 	glibrarydir = [GLIBRARY + '/lib']
 	env.Append(LIBPATH = glibrarydir)
 
-	## libraries - this will include cadmesh
-	libs = scanFiles(GLIBRARY + '/lib', accept=[ "*.a", "*.lib"])
 
-	# only load library if it exists
+	# appending glibraries in proper order
 	glibs = []
-	for dir in libs:
-		basename = os.path.basename(dir)
-		wout_lib = basename.strip('lib')
-		lib      = re.sub("\.a", "", wout_lib)
-		glibs.append(lib)
-
-	# c++ MT
 	glibs.append('pthread')
-
-	# appending glibraries
-	# to address Linux problems in -l order
-	glibs.append('pthread')
-	glibs.append('ghit')
 	glibs.append('textProgressBar')
 	glibs.append('gdata')
 	glibs.append('gtranslationTable')
 	glibs.append('gtouchable')
-
+	glibs.append('gparticle')
+	glibs.append('goptions')
+	glibs.append('eventDispenser')
+	glibs.append('g4system')
+	glibs.append('gsystem')
+	glibs.append('gQtButtonsWidget')
+	glibs.append('gsplash')
+	glibs.append('gdynamic')
+	glibs.append('g4display')
+	glibs.append('gstreamer')
+	glibs.append('guts')
+	glibs.append('ghit')
+	glibs.append('gdata')
 	env.Append(LIBS = glibs)
 
 	if env['SHOWENV'] == "1":
