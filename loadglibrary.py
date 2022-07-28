@@ -29,13 +29,15 @@ def loadglibrary(env, OSENV) :
 	# appending glibraries in proper order
 	glibs = []
 	glibs.append('pthread')
+	glibs.append('eventDispenser')
 	glibs.append('textProgressBar')
 	glibs.append('gdata')
+	glibs.append('gtranslationTable')
+	glibs.append('gdynamic')
 	glibs.append('gtranslationTable')
 	glibs.append('gtouchable')
 	glibs.append('gparticle')
 	glibs.append('goptions')
-	glibs.append('eventDispenser')
 	glibs.append('g4system')
 	glibs.append('gsystem')
 	glibs.append('gQtButtonsWidget')
