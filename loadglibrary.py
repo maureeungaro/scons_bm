@@ -49,6 +49,9 @@ def loadglibrary(env, OSENV) :
 	glibs.append('guts')
 	glibs.append('ghit')
 	glibs.append('gdata')
+	
+	# order not verified yet
+	glibs.append('gphysics')
 	env.Append(LIBS = glibs)
 
 	if env['SHOWENV'] == "1":
