@@ -12,8 +12,9 @@ def loadglibrary(env, OSENV) :
 	## includes
 	gincs1 = ['guts', 'goptions', 'gsplash', 'gdata', 'gfactory', 'gtouchable', 'gdynamicDigitization', 'ghit', 'gsystem', 'g4system']
 	gincs2 = ['gstreamer', 'eventDispenser', 'textProgressBar', 'gQtButtonsWidget', 'g4display', 'gtranslationTable', 'gparticle']
+	gincs3 = ['gphysics']
 
-	gincs = gincs1 + gincs2
+	gincs = gincs1 + gincs2 + gincs3
 
 	gincludes = []
 	for ginc in gincs:
