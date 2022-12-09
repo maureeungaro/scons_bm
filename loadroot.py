@@ -23,8 +23,8 @@ def loadroot(env, OSENV) :
 	root_config_libs = []
 	if env['PLATFORM'] == 'posix' or env['PLATFORM'] == 'darwin':
 		# manual root_config_libs
-		root_config_libs = ['-lCore', '-lRIO', '-lTree']
-		# root_config_libs = os.popen('$ROOTSYS/bin/root-config --glibs').readline().rstrip().split()
+		#root_config_libs = ['-lCore', '-lRIO', '-lTree', '-lHist']
+		root_config_libs = os.popen('$ROOTSYS/bin/root-config --glibs').readline().rstrip().split()
 		root_libpath     = os.popen('$ROOTSYS/bin/root-config --libdir').readline().rstrip().split()
 
 	# on Windows there is no script
