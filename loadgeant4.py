@@ -66,7 +66,7 @@ def loadgeant4(env, OSENV) :
 
 	if env['PLATFORM'] == 'posix':
 		env.Append(CXXFLAGS='-I/usr/include/GL')
-		env.Append(CXXFLAGS='-DG4VIS_USE_OPENGLX')
+		# env.Append(CXXFLAGS='-DG4VIS_USE_OPENGLX')  # no more needed? 1/13/23
 		validg4libs.append('GL')
 		# manually adding G4zlib
 		# looks like geant4-config does not provide these
