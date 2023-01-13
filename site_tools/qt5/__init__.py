@@ -767,7 +767,8 @@ def generate(env):
         QT5_QRCCXXPREFIX = 'qrc_',
         QT5_MOCDEFPREFIX = '-D',
         QT5_MOCDEFSUFFIX = '',
-        QT5_MOCDEFINES = '${_defines(QT5_MOCDEFPREFIX, CPPDEFINES, QT5_MOCDEFSUFFIX, __env__)}',
+        # this was patched with the addition of TARGET and SOURCE for scons > 4.2
+        QT5_MOCDEFINES = '${_defines(QT5_MOCDEFPREFIX, CPPDEFINES, QT5_MOCDEFSUFFIX, __env__, TARGET, SOURCE)}',
         QT5_MOCCPPPATH = [],
         QT5_MOCINCFLAGS = '$( ${_concat(QT5_MOCINCPREFIX, QT5_MOCCPPPATH, INCSUFFIX, __env__, RDirs)} $)',
 
