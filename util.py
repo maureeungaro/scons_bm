@@ -65,7 +65,6 @@ def loadoptions(env) :
 		env.Append(LIBS = 'dl')
 		if env['LIBRARY'] == 'shared':
 			env.Append(CPPFLAGS  = ' -fPIC')
-			env.Append(LINKFLAGS = ' -fPIC')
 
 	elif env['PLATFORM'] == 'darwin':
 		env.Append(CXXFLAGS = '-fexceptions')
