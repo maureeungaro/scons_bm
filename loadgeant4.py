@@ -70,7 +70,13 @@ def loadgeant4(env, OSENV) :
 	if env['PLATFORM'] == 'darwin':
 		env.Append(CXXFLAGS='-I/System/Library/Frameworks/OpenGL.framework/Headers')
 		env.Append(LINKFLAGS = '-L/System/Library/Frameworks/OpenGL.framework/Libraries/')
-		validg4libs.append('GL')
+		if env['HOST_ARCH'] == 'arm64':
+			print(" > Apple M1 or M2 chip detected, not loading GL library    ")
+			env.Append(CXXFLAGS='-DGL_SILENCE_DEPRECATION')
+		else:
+			print(" > Intel chip detected, loading GL library    ")
+			validg4libs.append('GL')
+		# not in geant4-config --libs ?
 		validg4libs.append('pthread')
 		validg4libs.append('G4ptl')
 		validg4libs.append('G4tasking')
