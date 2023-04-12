@@ -14,8 +14,12 @@ def loadccdb(env) :
 	ccdblibp = [CCDB_HOME + '/lib']
 	env.Append(LIBPATH = ccdblibp)
 
+	if env['PLATFORM'] == 'darwin' and env['HOST_ARCH'] == 'arm64':
+		print(" > Apple M1 or M2 chip detected, adding /opt/homebrew/lib to paths    ")
+		env.Append(LIBPATH = '/opt/homebrew/lib')
+
 	## libraries
-	ccdblibs = ['ccdb']
+	ccdblibs = ['ccdb', 'libmysqlclient', 'sqlite3']
 	env.Append(LIBS = ccdblibs)
 
 	# print environment if requested
