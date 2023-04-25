@@ -52,6 +52,10 @@ def loadglibrary(env, OSENV) :
 	
 	# order not verified yet
 	glibs.append('gphysics')
+
+	# sqlite3 is a requirement for gsystem
+	glibs.append('sqlite3')
+
 	env.Append(LIBS = glibs)
 
 	if env['SHOWENV'] == "1":
