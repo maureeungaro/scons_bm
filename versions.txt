@@ -1,0 +1,4 @@
+1.10: no c12 map, geant4 10.6 (no ptl), QT5_MOCDEFINES 5 arguments, for scons < 4.2
+1.11:    c12 map, geant4 10.6 (no ptl), QT5_MOCDEFINES 6 arguments, for scons >=  4.2 - on ifarm module load scons 4.4.0 is needed
+1.12:    c12 map, geant4 10.7 (need manual addition of ptl)
+1.13:    c12 map, geant4 11   (no need for addition of ptl)
