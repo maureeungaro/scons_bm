@@ -19,6 +19,8 @@ def loadccdb(env, OSENV) :
 	## libraries
 	ccdblibs = ['ccdb', 'libmysqlclient', 'sqlite3']
 	env.Append(LIBS = ccdblibs)
+	if env['PLATFORM'] == 'posix':
+		env.Append(LIBPATH='/usr/lib64/mysql/')
 
 	# print environment if requested
 	if env['SHOWENV'] == "1":
