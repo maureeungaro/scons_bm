@@ -64,6 +64,8 @@ def loadgeant4(env, OSENV) :
 		env.Append(CXXFLAGS='-I/usr/include/GL')
 		validg4libs.append('GL')
 		validg4libs.append('pthread')
+		validg4libs.append('G4ptl')
+		validg4libs.append('G4tasking')
 
 	if env['PLATFORM'] == 'darwin':
 		env.Append(CXXFLAGS='-I/System/Library/Frameworks/OpenGL.framework/Headers')
@@ -76,6 +78,8 @@ def loadgeant4(env, OSENV) :
 			validg4libs.append('GL')
 		# not in geant4-config --libs ?
 		validg4libs.append('pthread')
+		validg4libs.append('G4ptl')
+		validg4libs.append('G4tasking')
 
 	if env['PLATFORM'] == 'win32':
 		validg4libs.append('glu32')
