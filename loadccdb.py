@@ -5,7 +5,7 @@ def loadccdb(env, OSENV) :
 	check_if_dir_exist('CCDB_HOME', CCDB_HOME)
 
 	## includes
-	ccdbincs = [CCDB_HOME + '/include']
+	ccdbincs = [CCDB_HOME + '/include/ccdb']
 	env.Append(CPPPATH = ccdbincs)
 
 	## library paths
