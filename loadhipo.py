@@ -8,7 +8,7 @@ def loadhipo(env, OSENV) :
 		print ("\n > Loading HIPO software from ", HIPO)
 	
 	## includes
-	env.Append(CPPPATH = HIPO)
+	env.Append(CPPPATH = HIPO + '/include')
 
 	## flags
 	env.Append(LINKFLAGS = '-rdynamic')
