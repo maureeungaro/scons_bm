@@ -29,7 +29,7 @@ def loadcadmesh(env, OSENV) :
 	for dir in libs:
 		basename = os.path.basename(dir)
 		wout_lib = basename.strip('lib')
-		lib      = re.sub(".a", "", wout_lib)
+		lib      = re.sub(r"\.a", "", wout_lib)
 		glibs.append(lib)
 
 
