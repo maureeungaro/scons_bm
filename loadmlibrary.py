@@ -1,6 +1,6 @@
 from util import scanFiles, check_if_dir_exist
 import os
-import re
+from re import sub
 
 
 # MLIBRARY already has the version in it
@@ -29,7 +29,7 @@ def loadmlibrary(env, OSENV) :
 	for dir in libs:
 		basename = os.path.basename(dir)
 		wout_lib = basename.strip('lib')
-		lib      = re.sub("\.a", "", wout_lib)
+		lib      = sub('\.a', '', wout_lib)
 		mlibs.append(lib)
 
 
