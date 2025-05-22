@@ -103,11 +103,17 @@ def loadoptions(env) :
 
 	if env['DEBUG'] == "1":
 		if env['PLATFORM'] == 'posix':
-			env.Append(CXXFLAGS = '-g')
-			print ("Compiling with -g debug.")
+			env.Append(CXXFLAGS = '-g')                          # full symbols
+			env.Append(CXXFLAGS = '-O2')                         # optimise so hot spots are realistic
+			env.Append(CXXFLAGS = '-fno-omit-frame-pointer')     # needed for accurate stack unwinding
+			env.Append(CXXFLAGS = '-fno-optimize-sibling-calls') # keeps tail‑calls visible
+			print ("Compiling with -g -O2 -fno-omit-frame-pointer -fno-optimize-sibling-calls ")
 		elif env['PLATFORM'] == 'darwin':
-			env.Append(CXXFLAGS = '-g')
-			print ("Compiling with -g debug.")
+			env.Append(CXXFLAGS = '-g')                          # full symbols
+			env.Append(CXXFLAGS = '-O2')                         # optimise so hot spots are realistic
+			env.Append(CXXFLAGS = '-fno-omit-frame-pointer')     # needed for accurate stack unwinding
+			env.Append(CXXFLAGS = '-fno-optimize-sibling-calls') # keeps tail‑calls visible
+			print ("Compiling with -g -O2 -fno-omit-frame-pointer -fno-optimize-sibling-calls ")
 		elif env['PLATFORM'] == 'win32':
 			env.Append(CXXFLAGS = '/DEBUG')	
 			print ("Compiling with -/DEBUG debug.")
