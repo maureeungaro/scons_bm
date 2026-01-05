@@ -27,7 +27,7 @@ def loadgeant4(env, OSENV) :
 		spl = s.split()
 		for ss in spl:
 			# only add if it's a g4 library
-			if 'geant4' in ss:
+			if 'Geant4' in ss:
 				validg4incs.append('-I'+ss);
 
 	# geant4 had this additional flag.
