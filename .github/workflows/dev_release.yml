@@ -23,7 +23,4 @@ jobs:
           automatic_release_tag: "vdev"
           prerelease: false
           title: "Development Release"
-      - uses: gitboard-io/gitboard-action@main
-        with:
-          username: maureeungaro
-          key: 3d8e9059-a164-4bea-9541-1cb8789d805b
+
